@@ -1,0 +1,72 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #faf4e1;
+    font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+input:not(.form-button) {
+	width: 100%;
+	color: #A9A9A9;
+    margin-top: 1%;
+	margin-bottom: 1%;
+	padding: 10px;
+    box-sizing: border-box;
+    border-radius: 15px;
+}
+
+input:not(.form-button):hover{
+    border-color:#53131e;
+}
+
+.form-button:hover{   
+    color: #ffefbd;
+    background-color: #660066;
+}
+
+.form-button{
+    width: 100%;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    padding: 10px;
+    color: #660066;
+    background-color: #faecfa;  
+    box-sizing: border-box;    
+    border-color: #29090f;
+    border-radius: 15px;
+}
+
+.form{   
+    margin: auto;
+    margin-top: 2%;
+    margin-bottom: 2%;    
+    padding: 2%;
+    width: 30%;
+    border: 2%;    
+    border-radius: 15px;
+    border-style: outset;
+    border-color: #53131e;
+}
+
+.picture {
+    display: block;
+    margin-left: 40%;
+    margin-right: 40%;
+    width: 20%;
+}
+
+.login{
+    color:  #660066;
+    margin: auto;
+    padding: 2%;
+    width: 30%;
+    border: 2%;    
+    border-radius: 15px;
+    border-style: outset;
+    border-color:#53131e;
+    text-align: center;
+}
