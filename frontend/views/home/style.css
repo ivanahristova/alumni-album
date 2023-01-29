@@ -1,0 +1,12 @@
+.image-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+img {
+    width: 20%;
+    height: auto;
+    object-fit: contain;
+    margin: 1em 1em 1em 1em;
+}
