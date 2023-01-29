@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <title>Регистрация</title>
+    <link rel="stylesheet" href="../../styles/style.css">
+</head>
+<body>
+<div class="signup-block">
+    <h2>Регистрация</h2>
+</div>
+
+<form class="registration-form">
+    <div>
+        <input id="email" class="registration-form-input" type="email" placeholder="Имейл адрес">
+        <div id="username-error" class="error"></div>
+    </div>
+    <div>
+        <input id="password" class="registration-form-input" type="password" placeholder="Парола">
+        <div id="password-error" class="error"></div>
+    </div>
+    <div>
+        <input id="repeated-password" class="registration-form-input" type="password" placeholder="Повтори паролата">
+        <div id="repeated-password-error" class="error"></div>
+    </div>
+    <div>
+        <input id="first-name" class="registration-form-input" type="text" placeholder="Име">
+    </div>
+    <div>
+        <input id="last-name" class="registration-form-input" type="text" placeholder="Фамилия">
+    </div>
+
+    <div id="radio-group">
+        <input id="student-fields-input" class="registration-form-radio-button" type="radio" name="role" value="student" onclick="on_change(this)">Студент
+        <input id="teacher-fields-input" class="registration-form-radio-button" type="radio" name="role" value="teacher" onclick="on_change(this)">Преподавател
+
+        <div id="student-fields" class="fields">
+            <div>
+                <input id="class" class="registration-form-input" type="number" placeholder="Випуск">
+            </div>
+            <div>
+                <input id="faculty-number" class="registration-form-input" type="text" placeholder="Факултетен номер">
+            </div>
+            <div>
+                <input id="student-group" class="registration-form-input" type="text" placeholder="Група">
+            </div>
+            <div>
+                <select id="programme" class="registration-form-select">
+                    <option value="1">Анализ на данни</option>
+                    <option value="2">Информатика</option>
+                    <option value="3">Информационни системи</option>
+                    <option value="4">Компютърни науки</option>
+                    <option value="5">Математика</option>
+                    <option value="6">Математика и информатика</option>
+                    <option value="7">Приложна математика</option>
+                    <option value="8">Софтуерно инженерство</option>
+                    <option value="9">Статистика</option>
+                </select>
+            </div>
+        </div>
+
+        <div id="teacher-fields" class="fields">
+            <div>
+                <input id="title" class="registration-form-input" type="text" placeholder="Титла">
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <button id="register-button" class="registration-form-button">Регистрация</button>
+    </div>
+
+</form>
+
+<div class="signup-block">
+    Имате регистрация?
+    <a href="../login/index.html">Влезте в профила си</a>
+</div>
+</body>
+</html>
