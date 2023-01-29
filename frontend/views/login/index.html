@@ -1,39 +1,47 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="bg">
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <title>Вход | Алумни албум</title>
-    <link rel="icon" href=".\img\logo.png">
-    <link href=".\style.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../../styles/layout-auth.css">
 </head>
-
-
 <body>
-    <img class="picture" src=".\img\logo.png" alt="Elephant">
-
-    <div class="login">
-        <h2>Вход към Алумни албум</h2>
-    </div>
-    <form class="form" id="form">
-        <div class="form-item">
-            <input type="text" id="email" placeholder="Имейл">
+    <header class="banner">
+        <img src="../../images/banner-su-middle.png" alt="Банер СУ „Св. Климент Охридски“">
+    </header>
+    <main>
+        <div class="auth-form">
+            <div class="auth-form-header">
+                <h1>Вход</h1>
+            </div>
+            <div class="auth-form-callout auth-form-message">
+                <p id="success"></p>
+            </div>
+            <div class="auth-form-body">
+                <form>
+                    <div class="auth-form-fieldset">
+                        <div>
+                            <input type="email" class="form-item" id="email" placeholder="Имейл">
+                            <div class="error">
+                                <p id="email-error"></p>
+                            </div>
+                        </div>
+                        <div>
+                            <input type="password" class="form-item" id="password" placeholder="Парола">
+                            <div class="error">
+                                <p id="password-error"></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <button type="submit" class="form-item" id="login-button">Вход</button>
+                    </div>
+                </form>
+            </div>
+            <div class="auth-form-callout">
+                <p>Нямате регистрация? <a href="../signup/">Регистрирайте се</a></p>
+            </div>
         </div>
-
-        <div class="form-item">
-            <input type="text" id="password" placeholder="Парола">
-        </div>
-
-        <div >
-            <input class="form-button" id="signin-button" type="submit" value="Вход">
-        </div>
-    </form>
-
-    <p class="login">
-        Нямате регистрация?
-        <a href="../signup/index.html">Създаване на регистрация</a>
-    </p>
-
+    </main>
 </body>
-
 </html>
