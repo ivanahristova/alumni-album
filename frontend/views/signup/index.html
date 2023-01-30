@@ -1,80 +1,112 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="bg">
 <head>
     <meta charset="UTF-8">
-    <title>Регистрация</title>
-    <link rel="stylesheet" href="../../styles/style.css">
+    <title>Регистрация | Алумни албум</title>
+    <link rel="stylesheet" href="../../styles/auth.css">
+    <script src="../../scripts/signup.js" defer></script>
 </head>
 <body>
-<div class="signup-block">
-    <h2>Регистрация</h2>
-</div>
-
-<form class="registration-form">
-    <div>
-        <input id="email" class="registration-form-input" type="email" placeholder="Имейл адрес">
-        <div id="username-error" class="error"></div>
-    </div>
-    <div>
-        <input id="password" class="registration-form-input" type="password" placeholder="Парола">
-        <div id="password-error" class="error"></div>
-    </div>
-    <div>
-        <input id="repeated-password" class="registration-form-input" type="password" placeholder="Повтори паролата">
-        <div id="repeated-password-error" class="error"></div>
-    </div>
-    <div>
-        <input id="first-name" class="registration-form-input" type="text" placeholder="Име">
-    </div>
-    <div>
-        <input id="last-name" class="registration-form-input" type="text" placeholder="Фамилия">
-    </div>
-
-    <div id="radio-group">
-        <input id="student-fields-input" class="registration-form-radio-button" type="radio" name="role" value="student" onclick="on_change(this)">Студент
-        <input id="teacher-fields-input" class="registration-form-radio-button" type="radio" name="role" value="teacher" onclick="on_change(this)">Преподавател
-
-        <div id="student-fields" class="fields">
-            <div>
-                <input id="class" class="registration-form-input" type="number" placeholder="Випуск">
-            </div>
-            <div>
-                <input id="faculty-number" class="registration-form-input" type="text" placeholder="Факултетен номер">
-            </div>
-            <div>
-                <input id="student-group" class="registration-form-input" type="text" placeholder="Група">
-            </div>
-            <div>
-                <select id="programme" class="registration-form-select">
-                    <option value="1">Анализ на данни</option>
-                    <option value="2">Информатика</option>
-                    <option value="3">Информационни системи</option>
-                    <option value="4">Компютърни науки</option>
-                    <option value="5">Математика</option>
-                    <option value="6">Математика и информатика</option>
-                    <option value="7">Приложна математика</option>
-                    <option value="8">Софтуерно инженерство</option>
-                    <option value="9">Статистика</option>
-                </select>
-            </div>
+<header class="banner">
+    <img src="../../images/banner-su-middle.png" alt="Банер СУ „Св. Климент Охридски“">
+</header>
+<main>
+    <div class="auth-form">
+        <div class="auth-form-header">
+            <h1>Регистрация</h1>
         </div>
-
-        <div id="teacher-fields" class="fields">
-            <div>
-                <input id="title" class="registration-form-input" type="text" placeholder="Титла">
-            </div>
+        <div class="auth-form-callout auth-form-message">
+            <p id="success"></p>
+        </div>
+        <div class="auth-form-body">
+            <form>
+                <div class="auth-form-fieldset regular-fieldset">
+                    <div>
+                        <input type="email" class="form-item" id="email" placeholder="Имейл" required>
+                        <div class="error">
+                            <p id="email-error"></p>
+                        </div>
+                    </div>
+                    <div>
+                        <input type="password" class="form-item" id="password" placeholder="Парола" required
+                               minlength="8" maxlength="64">
+                        <div class="error">
+                            <p id="password-error"></p>
+                        </div>
+                    </div>
+                    <div>
+                        <input type="password" class="form-item" id="repeated-password" placeholder="Повтори паролата"
+                               required minlength="8" maxlength="63">
+                        <div class="error">
+                            <p id="repeated-password-error"></p>
+                        </div>
+                    </div>
+                    <div>
+                        <input type="text" class="form-item" id="first-name" placeholder="Име" required maxlength="255">
+                        <div class="error">
+                            <p id="first-name-error"></p>
+                        </div>
+                    </div>
+                    <div>
+                        <input type="text" class="form-item" id="last-name" placeholder="Фамилия" required
+                               maxlength="255">
+                        <div class="error">
+                            <p id="last-name-error"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="auth-form-fieldset tab-fieldset">
+                    <div class="tab-bar">
+                        <button type="button" class="tab" id="student">Студент</button>
+                        <button type="button" class="tab" id="teacher">Преподавател</button>
+                    </div>
+                    <div class="auth-form-tab-option" id="student-fields">
+                        <div>
+                            <input type="text" class="form-item" id="faculty-number" placeholder="Факултетен номер"
+                                   maxlength="255">
+                        </div>
+                        <div>
+                            <input type="number" class="form-item" id="class" placeholder="Випуск" min="1888">
+                        </div>
+                        <div>
+                            <select class="form-item" id="programme">
+                                <optgroup label="Математика">
+                                    <option value="Data Analytics">Анализ на данни</option>
+                                    <option value="Mathematics">Математика</option>
+                                    <option value="Applied Mathematics">Приложна математика</option>
+                                    <option value="Statistics">Статистика</option>
+                                </optgroup>
+                                <optgroup label="Информатика и компютърни науки">
+                                    <option value="Informatics">Информатика</option>
+                                    <option value="Information Systems">Информационни системи</option>
+                                    <option value="Computer Science">Компютърни науки</option>
+                                    <option value="Software Engineering">Софтуерно инженерство</option>
+                                </optgroup>
+                                <optgroup label="Педагогика на обучението по...">
+                                    <option value="Mathematics and Informatics">Математика и информатика</option>
+                                </optgroup>
+                            </select>
+                        </div>
+                        <div>
+                            <input type="number" class="form-item" id="student-group" placeholder="Група" min="1"
+                                   max="8">
+                        </div>
+                    </div>
+                    <div class="auth-form-tab-option" id="teacher-fields">
+                        <div>
+                            <input id="title" class="form-item" type="text" placeholder="Титла">
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <button type="submit" class="form-item" id="signup-button">Регистрация</button>
+                </div>
+            </form>
+        </div>
+        <div class="auth-form-callout">
+            <p>Имате регистрация? <a href="../login/">Влезте в профила си</a></p>
         </div>
     </div>
-
-    <div>
-        <button id="register-button" class="registration-form-button">Регистрация</button>
-    </div>
-
-</form>
-
-<div class="signup-block">
-    Имате регистрация?
-    <a href="../login/index.html">Влезте в профила си</a>
-</div>
+</main>
 </body>
 </html>
