@@ -1,12 +1,20 @@
+# Project
+## Configurations
+**/config/
+
+# JetBrains
+## General
+**/.idea/
+
 # VSCode
 ## General
-.vscode/
+**/.vscode/
 
 ## Local History for Visual Studio Code
-.history/
+**/.history/
 
 ## Built Visual Studio Code Extensions
-*.vsix
+**/*.vsix
 
 # Windows
 ## Windows thumbnail cache files
