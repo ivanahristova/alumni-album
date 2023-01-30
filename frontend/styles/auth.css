@@ -1,0 +1,136 @@
+@import "common.css";
+
+.banner {
+    margin-top: 1rem;
+}
+
+.banner img {
+    width: 100%;
+}
+
+body > * + * {
+    margin-top: 2rem;
+}
+
+.auth-form {
+    margin: 0 auto 2rem;
+    width: 400px;
+    font-size: 14px;
+}
+
+.auth-form > * + * {
+    margin-top: 1rem;
+}
+
+.auth-form-header {
+    text-align: center;
+}
+
+.auth-form-body form > * + * {
+    margin-top: 1rem;
+}
+
+.auth-form-body button {
+    padding: 5px 16px;
+    color: white;
+    background-color: var(--su-purple);
+    cursor: pointer;
+}
+
+.auth-form-body button:hover {
+    background-color: var(--su-dark-purple);
+}
+
+.auth-form-body button:active {
+    background-color: var(--su-purple);
+}
+
+.auth-form-fieldset {
+    border: solid 1px black;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.auth-form-fieldset input, select {
+    padding: 5px 12px;
+}
+
+.auth-form-tab-option {
+    padding: 1rem;
+    display: none;
+}
+
+.auth-form-tab-option > * + * {
+    margin-top: .75rem;
+}
+
+.regular-fieldset {
+    padding: 1rem;
+}
+
+.regular-fieldset > * + * {
+    margin-top: .75rem;
+}
+
+.tab-bar {
+    display: flex;
+}
+
+.tab-bar button {
+    border: none;
+    padding: 5px 12px;
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 20px;
+    appearance: none;
+    transition: 0.3s;
+    background-color: var(--su-purple);
+    flex: auto;
+    width: 100%;
+}
+
+.tab-bar button:hover, button.active {
+    background-color: var(--su-dark-purple);
+}
+
+.form-item {
+    border: solid 1px black;
+    border-radius: 6px;
+    width: 100%;
+    font-size: inherit;
+    line-height: 20px;
+    appearance: none;
+}
+
+.auth-form-message {
+    display: none;
+}
+
+.auth-form-callout {
+    border: solid 1px black;
+    border-radius: 6px;
+    padding: 1rem;
+    text-align: center;
+}
+
+.auth-form-error {
+    border: 1px solid rgba(248, 81, 73, 0.4);
+    display: block;
+    color: red;
+    background-color: rgba(248, 81, 73, 0.15);
+}
+
+.auth-form-success {
+    border: 1px solid rgba(15, 255, 80, 0.4);
+    display: block;
+    background-color: rgba(15, 255, 80, 0.15);
+}
+
+.error {
+    margin-top: .2rem;
+    padding-left: .2rem;
+    display: none;
+    color: red;
+    font-size: small;
+    font-style: italic;
+}
