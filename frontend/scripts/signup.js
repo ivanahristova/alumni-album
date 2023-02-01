@@ -10,7 +10,7 @@ function setTab(tab) {
     fields.style.display = 'block';
 
     if (tab.id !== 'teacher') {
-        fields.querySelectorAll('*').forEach(field => field.setAttribute('required', ''));
+        fields.querySelectorAll('input, select').forEach(field => field.setAttribute('required', ''));
     }
 
     tab.classList.add('active');
@@ -21,6 +21,11 @@ function setActiveTab(event) {
     tabs.forEach(unsetTab);
     setTab(event.target)
     document.querySelector('.tab-bar').style.borderBottom = '1px solid black';
+}
+
+function removeUnusedFields(tab, formValues) {
+    let fields = document.getElementById(tab.id + '-fields');
+    fields.querySelectorAll('input, select').forEach(field => delete formValues[field.name]);
 }
 
 async function signup(formValues) {
@@ -36,11 +41,13 @@ async function signup(formValues) {
 }
 
 async function signupHandler(event) {
-    let inputs = document.querySelectorAll('.auth-form-body input');
+    let inputs = document.querySelectorAll('.auth-form-body input, select');
     let messageElement = document.getElementById('success');
+    let inactiveTabs = document.querySelectorAll('.tab:not(.active)');
     let formValues = {};
 
-    inputs.forEach(input => formValues[input.id] = input.value.trim());
+    inputs.forEach(input => formValues[input.name] = input.value.trim());
+    inactiveTabs.forEach(tab => removeUnusedFields(tab, formValues));
 
     let message = await signup(formValues);
 
@@ -64,6 +71,6 @@ async function signupHandler(event) {
     let signupButton = document.getElementById('signup-button');
     signupButton.addEventListener('click', signupHandler);
 
-    document.getElementById('student').click();
     document.getElementById('class').max = new Date().getFullYear();
+    document.getElementById('student').click();
 })();

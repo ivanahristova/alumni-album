@@ -5,6 +5,7 @@
     <title>Регистрация | Алумни албум</title>
     <link rel="stylesheet" href="../../styles/auth.css">
     <script src="../../scripts/signup.js" defer></script>
+    <link rel="icon" href="../../images/favicon.ico" type="image/x-icon">
 </head>
 <body>
 <header class="banner">
@@ -22,33 +23,37 @@
             <form>
                 <div class="auth-form-fieldset regular-fieldset">
                     <div>
-                        <input type="email" class="form-item" id="email" placeholder="Имейл" required>
+                        <input type="email" class="form-item" name="email" id="email" placeholder="Имейл" required>
                         <div class="error">
                             <p id="email-error"></p>
                         </div>
                     </div>
                     <div>
-                        <input type="password" class="form-item" id="password" placeholder="Парола" required
+                        <input type="password" class="form-item" name="password" id="password" placeholder="Парола"
+                               required
                                minlength="8" maxlength="64">
                         <div class="error">
                             <p id="password-error"></p>
                         </div>
                     </div>
                     <div>
-                        <input type="password" class="form-item" id="repeated-password" placeholder="Повтори паролата"
+                        <input type="password" class="form-item" name="repeatedPassword" id="repeated-password"
+                               placeholder="Повтори паролата"
                                required minlength="8" maxlength="63">
                         <div class="error">
                             <p id="repeated-password-error"></p>
                         </div>
                     </div>
                     <div>
-                        <input type="text" class="form-item" id="first-name" placeholder="Име" required maxlength="255">
+                        <input type="text" class="form-item" name="firstName" id="first-name" placeholder="Име" required
+                               maxlength="255">
                         <div class="error">
                             <p id="first-name-error"></p>
                         </div>
                     </div>
                     <div>
-                        <input type="text" class="form-item" id="last-name" placeholder="Фамилия" required
+                        <input type="text" class="form-item" name="lastName" id="last-name" placeholder="Фамилия"
+                               required
                                maxlength="255">
                         <div class="error">
                             <p id="last-name-error"></p>
@@ -62,14 +67,16 @@
                     </div>
                     <div class="auth-form-tab-option" id="student-fields">
                         <div>
-                            <input type="text" class="form-item" id="faculty-number" placeholder="Факултетен номер"
+                            <input type="text" class="form-item" name="facultyNumber" id="faculty-number"
+                                   placeholder="Факултетен номер"
                                    maxlength="255">
                         </div>
                         <div>
-                            <input type="number" class="form-item" id="class" placeholder="Випуск" min="1888">
+                            <input type="number" class="form-item" name="class" id="class" placeholder="Випуск"
+                                   min="1888">
                         </div>
                         <div>
-                            <select class="form-item" id="programme">
+                            <select class="form-item" name="programme" id="programme">
                                 <optgroup label="Математика">
                                     <option value="Data Analytics">Анализ на данни</option>
                                     <option value="Mathematics">Математика</option>
@@ -88,13 +95,14 @@
                             </select>
                         </div>
                         <div>
-                            <input type="number" class="form-item" id="student-group" placeholder="Група" min="1"
+                            <input type="number" class="form-item" name="studentGroup" id="student-group"
+                                   placeholder="Група" min="1"
                                    max="8">
                         </div>
                     </div>
                     <div class="auth-form-tab-option" id="teacher-fields">
                         <div>
-                            <input id="title" class="form-item" type="text" placeholder="Титла">
+                            <input class="form-item" name="title" id="title" type="text" placeholder="Титла">
                         </div>
                     </div>
                 </div>
