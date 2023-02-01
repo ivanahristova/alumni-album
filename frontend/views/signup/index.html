@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Регистрация | Алумни албум</title>
-    <link rel="stylesheet" href="../../styles/auth.css">
+    <link rel="stylesheet" href="../../styles/form.css">
     <script src="../../scripts/signup.js" defer></script>
     <link rel="icon" href="../../images/favicon.ico" type="image/x-icon">
 </head>
@@ -12,16 +12,16 @@
     <img src="../../images/banner-su-middle.png" alt="Банер СУ „Св. Климент Охридски“">
 </header>
 <main>
-    <div class="auth-form">
-        <div class="auth-form-header">
+    <div class="custom-form">
+        <div class="form-header">
             <h1>Регистрация</h1>
         </div>
-        <div class="auth-form-callout auth-form-message">
+        <div class="form-callout form-message">
             <p id="success"></p>
         </div>
-        <div class="auth-form-body">
+        <div class="form-body">
             <form>
-                <div class="auth-form-fieldset regular-fieldset">
+                <div class="form-fieldset regular-fieldset">
                     <div>
                         <input type="email" class="form-item" name="email" id="email" placeholder="Имейл" required>
                         <div class="error">
@@ -60,12 +60,12 @@
                         </div>
                     </div>
                 </div>
-                <div class="auth-form-fieldset tab-fieldset">
+                <div class="form-fieldset tab-fieldset">
                     <div class="tab-bar">
                         <button type="button" class="tab" id="student">Студент</button>
                         <button type="button" class="tab" id="teacher">Преподавател</button>
                     </div>
-                    <div class="auth-form-tab-option" id="student-fields">
+                    <div class="form-tab-option" id="student-fields">
                         <div>
                             <input type="text" class="form-item" name="facultyNumber" id="faculty-number"
                                    placeholder="Факултетен номер"
@@ -100,7 +100,7 @@
                                    max="8">
                         </div>
                     </div>
-                    <div class="auth-form-tab-option" id="teacher-fields">
+                    <div class="form-tab-option" id="teacher-fields">
                         <div>
                             <input class="form-item" name="title" id="title" type="text" placeholder="Титла">
                         </div>
@@ -111,7 +111,7 @@
                 </div>
             </form>
         </div>
-        <div class="auth-form-callout">
+        <div class="form-callout">
             <p>Имате регистрация? <a href="../login/">Влезте в профила си</a></p>
         </div>
     </div>

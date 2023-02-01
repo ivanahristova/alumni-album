@@ -41,7 +41,7 @@ async function signup(formValues) {
 }
 
 async function signupHandler(event) {
-    let inputs = document.querySelectorAll('.auth-form-body input, select');
+    let inputs = document.querySelectorAll('.form-body input, select');
     let messageElement = document.getElementById('success');
     let inactiveTabs = document.querySelectorAll('.tab:not(.active)');
     let formValues = {};
