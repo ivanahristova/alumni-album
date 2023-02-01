@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <title>Търсене | Алумни албум</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<main>
+    <div class="search-form-body">
+        <form>
+            <div class="search-form-options" id="search-fields">
+                <div class="search-form-option">
+                    <label class="search-form-option-label">Випуск</label>
+                    <input type="number" class="form-item" id="class" min="1888">
+                </div>
+                <div class="search-form-option">
+                    <label class="search-form-option-label">Специалност</label>
+                    <select class="form-item" id="programme">
+                        <option disabled="" selected></option>
+                        <optgroup label="Математика">
+                            <option value="Data Analytics">Анализ на данни</option>
+                            <option value="Mathematics">Математика</option>
+                            <option value="Applied Mathematics">Приложна математика</option>
+                            <option value="Statistics">Статистика</option>
+                        </optgroup>
+                        <optgroup label="Информатика и компютърни науки">
+                            <option value="Informatics">Информатика</option>
+                            <option value="Information Systems">Информационни системи</option>
+                            <option value="Computer Science">Компютърни науки</option>
+                            <option value="Software Engineering">Софтуерно инженерство</option>
+                        </optgroup>
+                        <optgroup label="Педагогика на обучението по...">
+                            <option value="Mathematics and Informatics">Математика и информатика</option>
+                        </optgroup>
+                    </select>
+                </div>
+                <div class="search-form-option">
+                    <label class="search-form-option-label">Поток</label>
+                    <input type="number" class="form-item" id="subclass" min="1" max="2">
+                </div>
+                <div class="search-form-option">
+                    <label class="search-form-option-label">Група</label>
+                    <input type="number" class="form-item" id="student-group" min="1" max="8">
+                </div>
+
+                <div>
+                    <button type="submit" class="search-button" id="search-button">Търси</button>
+                </div>
+            </div>
+        </form>
+
+    </div>
+
+</main>
+</body>
+</html>

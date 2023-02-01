@@ -8,5 +8,34 @@ img {
     width: 20%;
     height: auto;
     object-fit: contain;
-    margin: 1em 1em 1em 1em;
+    margin: 1em;
+}
+
+.button {
+    padding: 5px 16px;
+    color: white;
+    background-color: #79005EFF;
+    border-radius: 15px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.button:hover {
+    padding: 5px 16px;
+    color: white;
+    background-color: #5A0046FF;
+    border-radius: 15px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.warning {
+    padding: 5px 16px;
+    margin-top: 1rem;
+    display: none;
+    border: 1px solid rgba(248, 81, 73, 0.4);
+    border-radius: 15px;
+    color: red;
+    background-color: rgba(248, 81, 73, 0.15);
+    /*width: 100%;*/
 }
