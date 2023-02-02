@@ -51,6 +51,15 @@ function userExists(string $email): bool
     return $stmt->fetch();
 }
 
+function getRole(int $id): string|false
+{
+    $database = Database::getInstance();
+    $sql = "SELECT code FROM role WHERE id = ?";
+    $stmt = $database->query($sql, $id);
+
+    return $stmt->fetch(PDO::FETCH_ASSOC)["code"];
+}
+
 function getRoleID(string $role): int|false
 {
     $database = Database::getInstance();
@@ -76,4 +85,22 @@ function getUserID(string $email): int|false
     $stmt = $database->query($sql, $email);
 
     return $stmt->fetch(PDO::FETCH_ASSOC)["id"];
+}
+
+function getProfile($table_name, $id): array|false
+{
+    $db = Database::getInstance();
+    $sql = "SELECT * FROM $table_name WHERE user_id = ?";
+    $stmt = $db->query($sql, $id);
+
+    return $stmt->fetch(PDO::FETCH_ASSOC);
+}
+
+function login($user_data): array|false
+{
+    $db = Database::getInstance();
+    $sql = "SELECT * FROM user WHERE email = ?";
+    $user = $db->query($sql, $user_data["email"])->fetch(PDO::FETCH_ASSOC);
+
+    return $user && password_verify($user_data["password"], $user["password"]) ? $user : false;
 }
