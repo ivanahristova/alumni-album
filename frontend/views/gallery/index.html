@@ -4,11 +4,9 @@
     <meta charset="UTF-8">
     <title>Начало</title>
     <link rel="stylesheet" href="../../styles/common.css">
-    <link rel="stylesheet" href="../../styles/home.css">
     <link rel="stylesheet" href="../../styles/photo.css">
     <link rel="stylesheet" href="../../styles/navigation.css">
-    <script src="../../scripts/home.js" defer></script>
-    <link rel="icon" href="../../images/favicon.ico" type="image/x-icon">
+    <script src="../../scripts/gallery.js" defer></script>
 </head>
 <body>
 <header>
@@ -21,23 +19,11 @@
         <a class="nav-link" href="../login">Изход</a>
     </nav>
 </header>
-    <section class="notes-container">
-        <header>
-            <h1>Албум</h1>
-        </header>
+<section id="image-container" class="image-container">
+    <div id="no-images" class="warning">
+        <p>Галерията е празна</p>
+    </div>
+</section>
 
-        <div id="columns" class="image-container">
-
-        </div>
-
-        <div>
-            <button type="submit" class="load-more-button" id="load-more-button">Зареди още</button>
-        </div>
-
-        <div id="no-more-images" class="warning">
-            <p>Няма повече снимки</p>
-        </div>
-
-    </section>
 </body>
 </html>

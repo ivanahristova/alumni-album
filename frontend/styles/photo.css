@@ -1,0 +1,21 @@
+.image-container {
+    margin-top: 3rem;
+    column-count: 3;
+}
+.image-view {
+    display: inline-block;
+    width: 100%;
+    height: auto;
+    border: 1rem solid white;
+}
+.image-view img {
+    display: block;
+    width: 100%;
+}
+.img {
+    margin-bottom: 2rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    background-color: rgba(121, 0, 94, 0.3);
+    padding: 0.5rem;
+}

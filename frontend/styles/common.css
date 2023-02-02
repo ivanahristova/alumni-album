@@ -12,3 +12,13 @@
 body {
     font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
+
+.warning {
+    padding: 5px 16px;
+    margin-top: 1rem;
+    display: none;
+    border: 1px solid rgba(248, 81, 73, 0.4);
+    border-radius: 15px;
+    color: red;
+    background-color: rgba(248, 81, 73, 0.15);
+}

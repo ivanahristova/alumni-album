@@ -1,0 +1,17 @@
+.load-more-button {
+    padding: 5px 16px;
+    color: white;
+    background-color: #79005EFF;
+    border-radius: 15px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.load-more-button:hover {
+    padding: 5px 16px;
+    color: white;
+    background-color: #5A0046FF;
+    border-radius: 15px;
+    cursor: pointer;
+    width: 100%;
+}
