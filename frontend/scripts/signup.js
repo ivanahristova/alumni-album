@@ -28,8 +28,8 @@ function removeUnusedFields(tab, formValues) {
     fields.querySelectorAll('input, select').forEach(field => delete formValues[field.name]);
 }
 
-async function signup(formValues) {
-    let json = await fetch('../../../backend/controllers/signup.php', {
+async function signup(formValues, id) {
+    let json = await fetch(`../../../backend/controllers/${id}-signup.php`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -37,10 +37,11 @@ async function signup(formValues) {
         body: JSON.stringify(formValues)
     }).then(response => response.json());
 
-    return json.status !== 'success' ? json.message : null;
+    return json.status !== 'success' ? json.data : null;
 }
 
 async function signupHandler(event) {
+    event.preventDefault();
     let inputs = document.querySelectorAll('.form-body input, select');
     let messageElement = document.getElementById('success');
     let inactiveTabs = document.querySelectorAll('.tab:not(.active)');
@@ -49,16 +50,16 @@ async function signupHandler(event) {
     inputs.forEach(input => formValues[input.name] = input.value.trim());
     inactiveTabs.forEach(tab => removeUnusedFields(tab, formValues));
 
-    let message = await signup(formValues);
+    let message = await signup(formValues, document.querySelector('.tab.active').id);
 
     if (message == null) {
         messageElement.innerHTML = "Успешна регистрация";
-        messageElement.parentElement.classList.add('auth-form-success');
-        messageElement.parentElement.classList.remove('auth-form-error');
+        messageElement.parentElement.classList.add('form-success');
+        messageElement.parentElement.classList.remove('form-error');
     } else {
         messageElement.innerHTML = message;
-        messageElement.parentElement.classList.add('auth-form-error');
-        messageElement.parentElement.classList.remove('auth-form-success');
+        messageElement.parentElement.classList.add('form-error');
+        messageElement.parentElement.classList.remove('form-success');
     }
 
     event.preventDefault();
