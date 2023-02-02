@@ -3,20 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <title>Търсене | Алумни албум</title>
-    <link rel="stylesheet" href="./style.css">
+    <link rel="icon" href="../../images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../../styles/search-bar.css">
+    <script src="../../scripts/search.js" defer> </script>
 </head>
 <body>
 <main>
     <div class="search-form-body">
-        <form>
+        <form id="search-form">
+            <div class="form-callout form-message">
+                <p id="success"></p>
+            </div>
             <div class="search-form-options" id="search-fields">
                 <div class="search-form-option">
                     <label class="search-form-option-label">Випуск</label>
-                    <input type="number" class="form-item" id="class" min="1888">
+                    <input type="number" class="form-item" name="class" id="class" min="1888">
                 </div>
                 <div class="search-form-option">
                     <label class="search-form-option-label">Специалност</label>
-                    <select class="form-item" id="programme">
+                    <select class="form-item" name="programme" id="programme">
                         <option disabled="" selected></option>
                         <optgroup label="Математика">
                             <option value="Data Analytics">Анализ на данни</option>
@@ -37,11 +42,11 @@
                 </div>
                 <div class="search-form-option">
                     <label class="search-form-option-label">Поток</label>
-                    <input type="number" class="form-item" id="subclass" min="1" max="2">
+                    <input type="number" class="form-item" name="subclass"  id="subclass" min="1" max="2">
                 </div>
                 <div class="search-form-option">
                     <label class="search-form-option-label">Група</label>
-                    <input type="number" class="form-item" id="student-group" min="1" max="8">
+                    <input type="number" class="form-item"  name="studentGroup" id="student-group" min="1" max="8">
                 </div>
 
                 <div>

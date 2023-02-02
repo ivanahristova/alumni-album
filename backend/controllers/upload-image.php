@@ -23,14 +23,14 @@ $message ="";
           $message = $message . "Разширението не е позволено, моля използвайте JPEG или PNG файл.";
       }
 
-      if($file_size > 2097152){
-          $message = $message . 'Файлът трябва да е по-малък от 2 MB. ';
-      }
+//      if($file_size > 2097152){
+//          $message = $message . 'Файлът трябва да е по-малък от 2 MB. ';
+//      }
 
       if($message == ""){
 
           $new_file_name = uniqid() . "database" . $file_ext;
-          $file_destination = "../../../backend/images/uploads/" . $new_file_name;
+          $file_destination = "../images/uploads/" . $new_file_name.".".$file_ext;
           move_uploaded_file($file_tmp, $file_destination);
           try {
               $db = Database::getInstance();
@@ -38,13 +38,13 @@ $message ="";
 
               
 
-              $target_dir = "images/";
-              $target_file = $target_dir . $new_file_name;
+              //$target_dir = "images/uploads/";
+              //$target_file = $target_dir . $new_file_name."";
               $image_path = $_FILES['image']['name'];
 
               $sqlInsert = "INSERT INTO photo(path, class,subclass,programme_id,student_group) VALUES (?,?,?,?,?)";
               $statement = $connection->prepare($sqlInsert);
-              $statement -> execute(array($target_file,$class,$subclass,$programme_id,$group));
+              $statement -> execute(array($file_destination,$class,$subclass,$programme_id,$group));
               $message = "Успешно качване!";
               echo json_encode(array("status" => "success","message" => $message), JSON_UNESCAPED_UNICODE);
 
