@@ -1,0 +1,22 @@
+@import "common.css";
+
+.nav-bar {
+    --height: 50px;
+
+    margin: calc(2px + var(--height) / 2) 0;
+    height: var(--height);
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: var(--su-purple);
+}
+
+.nav-bar img {
+    height: calc(var(--height) * 2);
+    position: relative;
+    top: -4px;
+}
+
+.nav-link {
+    color: white;
+}
