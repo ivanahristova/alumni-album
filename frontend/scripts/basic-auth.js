@@ -1,5 +1,5 @@
 window.onload = function () {
-    fetch('../../../backend/controllers/basic-auth.php')
+    fetch('../../../backend/controllers/auth/basic-auth.php')
         .then(response => response.json())
         .then(data => {
             let status = data.data;
