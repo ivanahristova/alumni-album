@@ -1,26 +1,11 @@
-document.getElementById("upload-form").addEventListener("submit", function (event) {
+const upload_form = document.getElementById("upload-form");
+upload_form.addEventListener("submit", function (event) {
     event.preventDefault();
 
     var student_class = document.getElementById("class").value;
     var student_programme = document.getElementById("programme").value;
     var student_subclass = document.getElementById("subclass").value;
     var student_group = document.getElementById("student-group").value;
-    // if (student_class === undefined) {
-
-    //   student_class = "";
-    // }
-    // if (student_programme === undefined) {
-
-    //   student_programme = "";
-    // }
-    // if (student_subclass === undefined) {
-
-    //   student_subclass = "";
-    // }
-    // if (student_group === undefined) {
-
-    //   student_group = "";
-    // }
 
     let formData = new FormData();
     formData.append("image", event.target.elements.image.files[0]);
@@ -49,4 +34,8 @@ document.getElementById("upload-form").addEventListener("submit", function (even
             }
 
         });
+
+    for (var i = 0; i < upload_form.elements.length; i++) {
+        upload_form.elements[i].value = "";
+    }
 });
