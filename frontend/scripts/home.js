@@ -18,7 +18,7 @@ function loadMore() {
     fetch('../../../backend/controllers/photos/get-photos.php?start={currentIndex}&end={endIndex}')
         .then(response => response.json())
         .then(images => {
-            images.forEach(function(image) {
+            images.forEach(function (image) {
                 const img = document.createElement("img");
                 img.src = image.src;
                 imageContainer.appendChild(img);
@@ -33,7 +33,7 @@ function loadMore() {
     }
 }
 
-loadMoreButton.addEventListener("click", function() {
+loadMoreButton.addEventListener("click", function () {
     loadMore();
 });
 

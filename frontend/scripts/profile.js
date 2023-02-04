@@ -1,7 +1,7 @@
 import "./basic-auth";
 
 var user_id = "";
-var table_name="";
+var table_name = "";
 window.onload = function () {
     fetch('../../backend/controllers/auth/student-auth.php', {
         method: 'POST'
@@ -10,10 +10,10 @@ window.onload = function () {
         .then(data => {
             if (data.status === "success") {
                 //show student
-                table_name="student";
+                table_name = "student";
             } else {
                 //show teacher
-                table_name="teacher";
+                table_name = "teacher";
             }
             user_id = data.data;
 

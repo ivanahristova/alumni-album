@@ -20,3 +20,17 @@
 .nav-link {
     color: white;
 }
+
+.logout-button {
+    background-color: #79005E;
+    color: white;
+    border-color: white;
+    margin: 0.5rem 0.5rem;
+    float: right;
+    padding: 5px 10px;
+    font-weight: 100;
+}
+
+.logout-button:hover {
+    background-color: #5A0046;
+}

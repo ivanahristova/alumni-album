@@ -3,6 +3,7 @@
     margin-bottom: 2rem;
     column-count: 3;
 }
+
 .image-view {
     display: inline-block;
     width: 100%;
@@ -10,10 +11,12 @@
     padding: 0.5rem;
     border: 1px solid black;
 }
+
 .image-view img {
     display: block;
     width: 100%;
 }
+
 .img {
     margin-bottom: 2rem;
     margin-left: 1rem;

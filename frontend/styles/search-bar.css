@@ -9,7 +9,7 @@
     align-items: center;
 }
 
-.search-form-option{
+.search-form-option {
     padding: 5px 10px;
     color: white;
     display: inline;
@@ -52,4 +52,30 @@
 
 .form-message {
     display: none;
+}
+
+@media (max-width: 850px) {
+    .search-form {
+        justify-content: center;
+    }
+
+    .search-form-options {
+        display: inline-block;
+        width: 70%;
+        padding-left: 10px;
+        padding-right: 10px;
+        margin-left: 15%;
+    }
+
+    .search-form-option:hover {
+        padding: 5px 10px;
+        color: white;
+        display: inline;
+        border-radius: 5px;
+    }
+
+    .search-button {
+        width: 20%;
+    }
+
 }
