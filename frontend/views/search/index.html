@@ -9,7 +9,6 @@
     <link href="../../styles/form.css" rel="stylesheet"/>
     <link rel="stylesheet" href="../../styles/photo.css">
     <script src="../../scripts/search.js" defer></script>
-    <script src="../../scripts/clear-form.js" defer></script>
     <script src="../../scripts/logout.js" defer></script>
 </head>
 <body>
@@ -36,11 +35,11 @@
             <div class="search-form-options" id="search-fields">
                 <div class="search-form-option">
                     <label class="search-form-option-label">Випуск</label>
-                    <input type="number" class="form-item" name="class" id="class" min="1888">
+                    <input type="number" class="form-item" name="class" id="class" min="1888" required>
                 </div>
                 <div class="search-form-option">
                     <label class="search-form-option-label">Специалност</label>
-                    <select class="form-item" name="programme" id="programme">
+                    <select class="form-item" name="programme" id="programme" required>
                         <option disabled="" selected></option>
                         <optgroup label="Математика">
                             <option value="Data Analytics">Анализ на данни</option>

@@ -25,7 +25,7 @@ search_form.addEventListener("submit", async function (event) {
 
     fields.forEach(field => {
         data[field.name] = field.value;
-        description = description + " "+ field.value;
+        description = description + " " + field.value;
     });
 
     await fetch('../../../backend/controllers/search-photo.php', {
@@ -41,7 +41,7 @@ search_form.addEventListener("submit", async function (event) {
             let messageElement = document.getElementById("success");
             document.getElementById("success").innerHTML = data.message;
             if (data.status === "success") {
-                messageElement.innerHTML = description;
+                messageElement.innerHTML = "Резултати от " + description;
                 messageElement.parentElement.classList.add('form-success');
                 messageElement.parentElement.classList.remove('form-error');
             } else {
@@ -57,8 +57,11 @@ search_form.addEventListener("submit", async function (event) {
                 let element = document.getElementById("no-images");
                 element.style.display = 'block';
             } else {
+                container.innerHTML = "";
                 for (let i = 0; i < photos.length; i++) {
+
                     container.appendChild(createImgForm(photos[i].path, photos[i].description));
+
                 }
             }
 
@@ -67,4 +70,6 @@ search_form.addEventListener("submit", async function (event) {
     for (var i = 0; i < search_form.elements.length; i++) {
         search_form.elements[i].value = "";
     }
+
+
 })
