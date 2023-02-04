@@ -99,6 +99,15 @@ function getProgrammeID(string $programme): int|false
     return $stmt->fetch(PDO::FETCH_ASSOC)["id"];
 }
 
+function getProgrammeNameByCode(string $code): string
+{
+    $database = Database::getInstance();
+    $sql = "SELECT * FROM programme WHERE code = ?";
+    $statement = $database->query($sql, $code);
+
+    return $statement->fetch(PDO::FETCH_ASSOC)["name"];
+}
+
 function getUserID(string $email): int|false
 {
     $database = Database::getInstance();

@@ -43,12 +43,12 @@ if (isset($_FILES["image"])) {//TODO choose happy path
             $statement = $connection->prepare($sqlInsert);
             $statement->execute(array($path, $class, $subclass, $programme_id, $group));
             $message = "Успешно качване!";
-            echo json_encode(array("status" => "success", "message" => $message), JSON_UNESCAPED_UNICODE);
+            echo json_encode(array("status" => "success", "data" => $message), JSON_UNESCAPED_UNICODE);
 
         } catch (PDOException $ex) {
             echo $ex->getMessage();
         }
     } else {
-        echo json_encode(array("status" => "failure", "message" => "Неуспешно качване. " . $message), JSON_UNESCAPED_UNICODE);
+        echo json_encode(array("status" => "failure", "data" => "Неуспешно качване. " . $message), JSON_UNESCAPED_UNICODE);
     }
 }
