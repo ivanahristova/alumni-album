@@ -30,12 +30,13 @@
         <div class="form-callout form-message">
             <p id="success"></p>
         </div>
-        
-        <div class="form-header">
-            <h1>Редактиране на профила</h1>
-        </div>
+
+
         <div class="form-body">
-            <form class="form-fieldset regular-fieldset" id="update-form">
+            <div class="form-header">
+                <h1>Редактиране на имейл</h1>
+            </div>
+            <form class="form-fieldset regular-fieldset" id="update-email-form">
                 <div>
                     <input type="email" class="form-item" name="email" id="email" placeholder="Имейл">
                     <div class="error">
@@ -43,12 +44,24 @@
                     </div>
                 </div>
                 <div>
-                    <input type="password" class="form-item" name="password" id="new-password" placeholder="Нова парола"
+                    <input type="password" class="form-item" name="password" id="password" placeholder="Парола"
                            minlength="8" maxlength="64">
                     <div class="error">
-                        <p id="new-password-error"></p>
+                        <p id="password-error"></p>
                     </div>
                 </div>
+                <div>
+                    <button class="update-button" type="submit">Запази</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="form-body">
+            <div class="form-header">
+                <h1>Редактиране на парола</h1>
+            </div>
+            <form class="form-fieldset regular-fieldset" id="update-password-form">
+
                 <div>
                     <input type="password" class="form-item" name="password" id="old-password"
                            placeholder="Стара парола"
@@ -57,6 +70,14 @@
                         <p id="old-password-error"></p>
                     </div>
                 </div>
+                <div>
+                    <input type="password" class="form-item" name="password" id="new-password" placeholder="Парола"
+                           minlength="8" maxlength="64">
+                    <div class="error">
+                        <p id="new-password-error"></p>
+                    </div>
+                </div>
+
                 <div>
                     <button class="update-button" type="submit">Запази</button>
                 </div>
