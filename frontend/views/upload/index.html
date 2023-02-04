@@ -1,29 +1,28 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta charset="UTF-8">
     <title>Добавяне на снимка | Алумни албум</title>
-    <link rel="icon" href="../../images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../../images/favicon.ico" sizes="any">
     <link rel="stylesheet" href="../../styles/search-bar.css">
     <link rel="stylesheet" href="../../styles/form.css">
-
-    <link rel="stylesheet" href="../../styles/navigation.css">
     <script src="../../scripts/basic-auth.js" defer></script>
     <script src="../../scripts/upload.js" defer></script>
     <script src="../../scripts/logout.js" defer></script>
 </head>
-<header>
-    <nav class="nav-bar">
-        <img src="../../images/building-su.png">
-        <a class="nav-link" href="../home">Моите снимки</a>
-        <a class="nav-link" href="../upload">Качване на снимки</a>
-        <a class="nav-link" href="../search">Търсене на снимки</a>
-        <a class="nav-link" href="../gallery">Нашата галерия</a>
-        <a class="nav-link" href="../profile">Моят профил</a>
-        <a class="nav-link" href="../statistics">Статистики</a>
-        <button class="nav-link logout-button" id="logout-button">Изход</button>
+<header class="menu">
+    <img class="logo" src="../../images/building-su.png">
+    <nav class="navigation">
+        <ul>
+            <li><a href="../home">Моите снимки</a></li>
+            <li><a href="../upload" class="active">Качване на снимки</a></li>
+            <li><a href="../search">Търсене на снимки</a></li>
+            <li><a href="../gallery">Нашата галерия</a></li>
+            <li><a href="../statistics">Статистики</a></li>
+            <li><a href="../profile">Моят профил</a></li>
+        </ul>
     </nav>
+    <button id="logout-button">Изход</button>
 </header>
 <body>
 <div class="custom-form">
@@ -56,19 +55,15 @@
                         </optgroup>
                     </select>
                 </div>
-
                 <div>
                     <input type="number" class="form-item" id="class" placeholder="Випуск" min="1888" required>
                 </div>
-
                 <div>
                     <input type="number" class="form-item" id="subclass" placeholder="Поток" min="1" max="2">
                 </div>
-
                 <div>
                     <input type="number" class="form-item" id="student-group" placeholder="Група" min="1" max="8">
                 </div>
-
                 <div class="file-button">
                     <input type="file" name="image" required>
                     <button type="submit">Качи снимка</button>
@@ -78,5 +73,4 @@
     </div>
 </div>
 </body>
-
 </html>

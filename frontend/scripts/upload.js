@@ -14,25 +14,25 @@ upload_form.addEventListener("submit", function (event) {
     formData.append("subclass", student_subclass);
     formData.append("student-group", student_group);
 
-
     fetch("../../../backend/controllers/upload-image.php", {
         method: "POST",
         body: formData
     })
         .then(response => response.json())
-        .then(data => {
-
+        .then(json => {
             let messageElement = document.getElementById("success");
-            document.getElementById("success").innerHTML = data.message;
-            if (data.status === "success") {
+
+            document.getElementById("success").innerHTML = json.data;
+
+            if (json.status === "success") {
                 messageElement.parentElement.classList.add('form-success');
                 messageElement.parentElement.classList.remove('form-error');
+                messageElement.parentElement.style.display = "block";
             } else {
-
                 messageElement.parentElement.classList.add('form-error');
                 messageElement.parentElement.classList.remove('form-success');
+                messageElement.parentElement.style.display = "block";
             }
-
         });
 
     for (var i = 0; i < upload_form.elements.length; i++) {

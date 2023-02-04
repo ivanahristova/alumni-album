@@ -3,46 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <title>Начало</title>
-    <link rel="stylesheet" href="../../styles/common.css">
+    <link rel="icon" href="../../images/favicon.ico" sizes="any">
     <link rel="stylesheet" href="../../styles/home.css">
-    <link rel="stylesheet" href="../../styles/photo.css">
-    <link rel="stylesheet" href="../../styles/navigation.css">
-    <link rel="stylesheet" href="../../styles/search-bar.css">
     <script src="../../scripts/basic-auth.js" defer></script>
     <script src="../../scripts/home.js" defer></script>
-    <script src="../../scripts/logout.js" defer> </script>
-    <link rel="icon" href="../../images/favicon.ico" type="image/x-icon">
+    <script src="../../scripts/logout.js" defer></script>
 </head>
 <body>
-<header>
-    <nav class="nav-bar">
-        <img src="../../images/building-su.png">
-        <a class="nav-link" href="../home">Моите снимки</a>
-        <a class="nav-link" href="../upload">Качване на снимки</a>
-        <a class="nav-link" href="../search">Търсене на снимки</a>
-        <a class="nav-link" href="../gallery">Нашата галерия</a>
-        <a class="nav-link" href="../profile">Моят профил</a>
-        <a class="nav-link" href="../statistics">Статистики</a>
-        <button class="nav-link logout-button" id="logout-button">Изход</button>
+<header class="menu">
+    <img class="logo" src="../../images/building-su.png">
+    <nav class="navigation">
+        <ul>
+            <li><a href="../home" class="active">Моите снимки</a></li>
+            <li><a href="../upload">Качване на снимки</a></li>
+            <li><a href="../search">Търсене на снимки</a></li>
+            <li><a href="../gallery">Нашата галерия</a></li>
+            <li><a href="../profile">Моят профил</a></li>
+            <li><a href="../statistics">Статистики</a></li>
+        </ul>
     </nav>
+    <button id="logout-button">Изход</button>
 </header>
-    <section class="notes-container">
-        <header>
-            <h1>Албум</h1>
-        </header>
-
-        <div id="columns" class="image-container">
-
-        </div>
-
-        <div>
-            <button type="submit" class="load-more-button" id="load-more-button">Зареди още</button>
-        </div>
-
-        <div id="no-more-images" class="warning">
-            <p>Няма повече снимки</p>
-        </div>
+<main>
+    <header class="title">
+        <h1>Албум</h1>
+    </header>
+    <section class="my-container" id="image-container">
 
     </section>
+    <div>
+        <button type="submit" class="load-more-button" id="load-more-button">Зареди още...</button>
+    </div>
+    <div class="warning" id="no-more-images">
+        <p>Няма повече снимки</p>
+    </div>
+</main>
 </body>
 </html>

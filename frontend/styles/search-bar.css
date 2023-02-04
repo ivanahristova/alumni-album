@@ -1,4 +1,5 @@
 @import "form.css";
+
 .search-form-options {
     display: flex;
     width: 100%;
@@ -67,5 +68,4 @@
     .search-button {
         width: 20%;
     }
-
 }

@@ -1,14 +1,11 @@
-window.onload = function () {
+window.addEventListener('load', () => {
     fetch('../../../backend/controllers/auth/basic-auth.php')
-        .then(response => response.json())
-        .then(data => {
-            let status = data.data;
-
-            if (status === "unauthorized") {
+        .then(response => {
+            if (!response.ok) {
                 window.location.assign("../login");
             }
         })
-        .catch(function (error) {
-            console.error("Error checking authorization: ", error);
+        .catch(error => {
+            console.error("could not run authorization check:", error);
         });
-};
+});

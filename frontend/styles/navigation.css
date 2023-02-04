@@ -1,36 +1,53 @@
 @import "common.css";
 
-.nav-bar {
-    --height: 50px;
-
-    margin: calc(2px + var(--height) / 2) 0;
-    height: var(--height);
+.menu {
+    padding: 1rem;
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-between;
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+.menu .logo {
+    width: 150px;
+}
+
+.menu button {
+    border: none;
+    border-radius: 50px;
+    padding: .5rem 1.5rem;
+    color: white;
     background-color: var(--su-purple);
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+    font-weight: inherit;
+    font-size: inherit;
 }
 
-.nav-bar img {
-    height: calc(var(--height) * 2);
-    position: relative;
-    top: -4px;
+.navigation ul {
+    list-style: none;
 }
 
-.nav-link {
-    color: white;
+.navigation ul li {
+    padding: 0 1rem;
+    display: inline-block;
 }
 
-.logout-button {
-    background-color: #79005E;
-    color: white;
-    border-color: white;
-    margin: 0.5rem 0.5rem;
-    float: right;
-    padding: 5px 10px;
-    font-weight: 100;
+.navigation ul li a {
+    transition: all 0.3s ease 0s;
 }
 
-.logout-button:hover {
-    background-color: #5A0046;
+.navigation ul li a:hover {
+    color: var(--su-purple);
+}
+
+.navigation li,
+.navigation a {
+    color: black;
+    text-decoration: none;
+}
+
+.navigation .active {
+    color: var(--su-purple);
 }

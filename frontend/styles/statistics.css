@@ -1,3 +1,6 @@
+@import "common.css";
+@import "navigation.css";
+
 .tab-bar {
     display: flex;
 }

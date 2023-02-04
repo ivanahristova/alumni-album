@@ -3,36 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <title>Търсене | Алумни албум</title>
-    <link rel="icon" href="../../images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../../images/favicon.ico" sizes="any">
     <link rel="stylesheet" href="../../styles/search-bar.css">
-    <link rel="stylesheet" href="../../styles/navigation.css">
-    <link href="../../styles/form.css" rel="stylesheet"/>
     <link rel="stylesheet" href="../../styles/photo.css">
+    <link rel="stylesheet" href="../../styles/form.css">
     <script src="../../scripts/search.js" defer></script>
     <script src="../../scripts/logout.js" defer></script>
 </head>
 <body>
-<header>
-    <nav class="nav-bar">
-        <img src="../../images/building-su.png">
-        <a class="nav-link" href="../home">Моите снимки</a>
-        <a class="nav-link" href="../upload">Качване на снимки</a>
-        <a class="nav-link" href="../search">Търсене на снимки</a>
-        <a class="nav-link" href="../gallery">Нашата галерия</a>
-        <a class="nav-link" href="../profile">Моят профил</a>
-        <a class="nav-link" href="../statistics">Статистики</a>
-        <button class="nav-link logout-button" id="logout-button">Изход</button>
+<header class="menu">
+    <img class="logo" src="../../images/building-su.png">
+    <nav class="navigation">
+        <ul>
+            <li><a href="../home">Моите снимки</a></li>
+            <li><a href="../upload">Качване на снимки</a></li>
+            <li><a href="../search" class="active">Търсене на снимки</a></li>
+            <li><a href="../gallery">Нашата галерия</a></li>
+            <li><a href="../statistics">Статистики</a></li>
+            <li><a href="../profile">Моят профил</a></li>
+        </ul>
     </nav>
+    <button id="logout-button">Изход</button>
 </header>
 <main>
     <div class="search-form-body">
         <form id="search-form">
-
-
             <div class="form-header">
                 <h1>Търси снимки</h1>
             </div>
-
             <div class="search-form-options" id="search-fields">
                 <div class="search-form-option">
                     <label class="search-form-option-label">Випуск</label>
@@ -67,26 +65,20 @@
                     <label class="search-form-option-label">Група</label>
                     <input type="number" class="form-item" name="studentGroup" id="student-group" min="1" max="8">
                 </div>
-
                 <div>
                     <button type="submit" class="search-button" id="search-button">Търси</button>
                 </div>
-
             </div>
         </form>
-
         <div class="form-callout form-message">
             <p id="success"></p>
         </div>
-
     </div>
-
-    <section id="image-container" class="image-container">
-        <div id="no-images" class="warning">
-            <p>Галерията е празна</p>
+    <section class="image-container" id="image-container">
+        <div class="warning" id="no-images">
+            <p>Няма намерени резултати</p>
         </div>
     </section>
-
 </main>
 </body>
 </html>

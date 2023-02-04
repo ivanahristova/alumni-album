@@ -1,3 +1,7 @@
+@import "common.css";
+@import "form.css";
+@import "navigation.css";
+
 .info-fields {
     display: none;
 }

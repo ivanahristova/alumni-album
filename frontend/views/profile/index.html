@@ -3,35 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <title>Профил | Алумни албум</title>
-    <link rel="icon" href="../../images/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="../../styles/navigation.css">
-    <link rel="stylesheet" href="../../styles/search-bar.css">
+    <link rel="icon" href="../../images/favicon.ico" sizes="any">
     <link rel="stylesheet" href="../../styles/profile.css">
-    <link rel="stylesheet" href="../../styles/form.css">
     <script src="../../scripts/basic-auth.js" defer></script>
     <script src="../../scripts/logout.js" defer></script>
     <script src="../../scripts/load-profile.js" defer></script>
     <script src="../../scripts/update-profile.js" defer></script>
 </head>
 <body>
-<header>
-    <nav class="nav-bar">
-        <img src="../../images/building-su.png">
-        <a class="nav-link" href="../home">Моите снимки</a>
-        <a class="nav-link" href="../upload">Качване на снимки</a>
-        <a class="nav-link" href="../search">Търсене на снимки</a>
-        <a class="nav-link" href="../gallery">Нашата галерия</a>
-        <a class="nav-link" href="../profile">Моят профил</a>
-        <a class="nav-link" href="../statistics">Статистики</a>
-        <button class="nav-link logout-button" id="logout-button">Изход</button>
+<header class="menu">
+    <img class="logo" src="../../images/building-su.png">
+    <nav class="navigation">
+        <ul>
+            <li><a href="../home">Моите снимки</a></li>
+            <li><a href="../upload">Качване на снимки</a></li>
+            <li><a href="../search">Търсене на снимки</a></li>
+            <li><a href="../gallery">Нашата галерия</a></li>
+            <li><a href="../statistics">Статистики</a></li>
+            <li><a href="../profile" class="active">Моят профил</a></li>
+        </ul>
     </nav>
+    <button id="logout-button">Изход</button>
 </header>
 <main>
     <div class="custom-form">
         <div class="form-callout form-message">
             <p id="success"></p>
         </div>
-
         <div class="form-body">
             <div class="form-header">
                 <h1>Редактиране на имейл</h1>
@@ -55,13 +53,11 @@
                 </div>
             </form>
         </div>
-
         <div class="form-body">
             <div class="form-header">
                 <h1>Редактиране на парола</h1>
             </div>
             <form class="form-fieldset regular-fieldset" id="update-password-form">
-
                 <div>
                     <input type="password" class="form-item" name="password" id="old-password"
                            placeholder="Стара парола"
@@ -77,7 +73,6 @@
                         <p id="new-password-error"></p>
                     </div>
                 </div>
-
                 <div>
                     <button class="update-button" type="submit">Запази</button>
                 </div>

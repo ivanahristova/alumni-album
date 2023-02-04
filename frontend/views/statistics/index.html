@@ -2,46 +2,39 @@
 <html lang="bg">
 <head>
     <meta charset="UTF-8">
-    <title>Профил | Алумни албум</title>
-    <link rel="icon" href="../../images/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="../../styles/navigation.css">
+    <title>Статистики | Алумни албум</title>
+    <link rel="icon" href="../../images/favicon.ico" sizes="any">
     <link rel="stylesheet" href="../../styles/statistics.css">
-    <link rel="stylesheet" href="../../styles/common.css">
     <script src="../../scripts/basic-auth.js" defer></script>
     <script src="../../scripts/logout.js" defer></script>
     <script src="../../scripts/statistics.js" defer></script>
 </head>
 <body>
-<header>
-    <nav class="nav-bar">
-        <img src="../../images/building-su.png">
-        <a class="nav-link" href="../home">Моите снимки</a>
-        <a class="nav-link" href="../upload">Качване на снимки</a>
-        <a class="nav-link" href="../search">Търсене на снимки</a>
-        <a class="nav-link" href="../gallery">Нашата галерия</a>
-        <a class="nav-link" href="../profile">Моят профил</a>
-        <a class="nav-link" href="../statistics">Статистики</a>
-        <button class="nav-link logout-button" id="logout-button">Изход</button>
+<header class="menu">
+    <img class="logo" src="../../images/building-su.png">
+    <nav class="navigation">
+        <ul>
+            <li><a href="../home">Моите снимки</a></li>
+            <li><a href="../upload">Качване на снимки</a></li>
+            <li><a href="../search">Търсене на снимки</a></li>
+            <li><a href="../gallery">Нашата галерия</a></li>
+            <li><a href="../statistics" class="active">Статистики</a></li>
+            <li><a href="../profile">Моят профил</a></li>
+        </ul>
     </nav>
+    <button id="logout-button">Изход</button>
 </header>
 <main>
     <div class="tab-bar">
         <button type="button" class="tab" id="class">Випуск</button>
         <button type="button" class="tab" id="programme">Специалност</button>
     </div>
-
     <div class="statistics" id="statistics">
-<!--        <table class="chart" id="users-stats-chart">-->
-<!--            <tbody id="users-stats-chart-body">-->
 
-<!--            </tbody>-->
-<!--        </table>-->
     </div>
-
-    <section class="warning" id="no-data" >
+    <section class="warning" id="no-data">
         <p>Няма достатъчно данни за изготвяне на статистика</p>
     </section>
-
 </main>
 </body>
 </html>

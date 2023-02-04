@@ -1,3 +1,38 @@
+@import "common.css";
+@import "navigation.css";
+
+.my-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    gap: 2rem;
+    align-items: center;
+}
+
+.my-container div {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.my-container-item img {
+    height: 100%;
+    width: 100%;
+}
+
+.title {
+    text-align: center;
+}
+
+main {
+    padding: 2rem;
+}
+
+main > * + * {
+    margin-top: 1rem;
+}
+
+main:last-child {
+    margin-bottom: 3rem;
+}
+
 .load-more-button {
     padding: 5px 16px;
     color: white;
