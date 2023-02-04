@@ -19,12 +19,78 @@
         <a class="nav-link" href="../upload">Качване на снимки</a>
         <a class="nav-link" href="../search">Търсене на снимки</a>
         <a class="nav-link" href="../gallery">Нашата галерия</a>
-        <a class="nav-link" href="../profile">Профил</a>
+        <a class="nav-link" href="../profile">Моят профил</a>
         <button class="nav-link search-button" id="logout-button">Изход</button>
     </nav>
 </header>
 <main>
+    <div class="custom-form">
+        <div class="form-header">
+            <h1>Профил</h1>
+        </div>
+        <div class="form-callout form-message">
+            <p id="success"></p>
+        </div>
+        <div class="form-body">
+            <form id="update-form" enctype="multipart/form-data">
+                <div class="form-fieldset regular-fieldset">
 
+                    <div>
+                        <input type="text" class="form-item" name="firstName" id="first-name" placeholder="Име" required
+                               maxlength="255">
+                        <div class="error">
+                            <p id="first-name-error"></p>
+                        </div>
+                    </div>
+                    <div>
+                        <input type="text" class="form-item" name="lastName" id="last-name" placeholder="Фамилия"
+                               required
+                               maxlength="255">
+                        <div class="error">
+                            <p id="last-name-error"></p>
+                        </div>
+                    </div>
+                    <div>
+                        <select class="form-item" id="programme" required>
+                            <option value selected disabled>Специалност</option>
+                            <optgroup label="Математика">
+                                <option value="Data Analytics">Анализ на данни</option>
+                                <option value="Mathematics">Математика</option>
+                                <option value="Applied Mathematics">Приложна математика</option>
+                                <option value="Statistics">Статистика</option>
+                            </optgroup>
+                            <optgroup label="Информатика и компютърни науки">
+                                <option value="Informatics">Информатика</option>
+                                <option value="Information Systems">Информационни системи</option>
+                                <option value="Computer Science">Компютърни науки</option>
+                                <option value="Software Engineering">Софтуерно инженерство</option>
+                            </optgroup>
+                            <optgroup label="Педагогика на обучението по...">
+                                <option value="Mathematics and Informatics">Математика и информатика</option>
+                            </optgroup>
+                        </select>
+                    </div>
+
+                    <div>
+                        <input type="number" class="form-item" id="class" placeholder="Випуск" min="1888" required>
+                    </div>
+
+                    <div>
+                        <input type="number" class="form-item" id="student-group" placeholder="Група" min="1" max="8">
+                    </div>
+
+                    <div>
+                        <input type="number" class="form-item" id="subclass" placeholder="Поток" min="1" max="2">
+                    </div>
+
+
+                </div>
+                <div >
+                    <button class="update-button" type="submit">Запази</button>
+                </div>
+            </form>
+        </div>
+    </div>
 </main>
 </body>
 </html>

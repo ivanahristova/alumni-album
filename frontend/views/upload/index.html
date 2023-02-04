@@ -5,12 +5,12 @@
     <meta charset="UTF-8">
     <title>Добавяне на снимка | Алумни албум</title>
     <link rel="icon" href="../../images/favicon.ico" type="image/x-icon">
-    <link href="../../styles/form.css" rel="stylesheet" />
-    <link rel="stylesheet" href="../../styles/navigation.css">
+    <link rel="stylesheet" href="../../styles/form.css">
     <link rel="stylesheet" href="../../styles/search-bar.css">
+    <link rel="stylesheet" href="../../styles/navigation.css">
     <script src="../../scripts/basic-auth.js" defer></script>
-    <script src="../../scripts/upload.js" defer> </script>
-    <script src="../../scripts/logout.js" defer> </script>
+    <script src="../../scripts/upload.js" defer></script>
+    <script src="../../scripts/logout.js" defer></script>
 </head>
 <header>
     <nav class="nav-bar">
@@ -19,62 +19,62 @@
         <a class="nav-link" href="../upload">Качване на снимки</a>
         <a class="nav-link" href="../search">Търсене на снимки</a>
         <a class="nav-link" href="../gallery">Нашата галерия</a>
-        <a class="nav-link" href="../profile">Профил</a>
+        <a class="nav-link" href="../profile">Моят профил</a>
         <button class="nav-link search-button" id="logout-button">Изход</button>
     </nav>
 </header>
 <body>
-    <div class="custom-form">
-        <div class="form-header">
-            <h1>Нова снимка</h1>
-        </div>
-        <div class="form-callout form-message">
-            <p id="success"></p>
-        </div>
-        <div class="form-body">
-            <form id="upload-form" enctype="multipart/form-data">
-                <div class="form-fieldset regular-fieldset">
-                    <div>
-                        <select class="form-item" id="programme">
-                            <option value selected disabled>Специалност</option>
-                            <optgroup label="Математика">
-                                <option value="Data Analytics">Анализ на данни</option>
-                                <option value="Mathematics">Математика</option>
-                                <option value="Applied Mathematics">Приложна математика</option>
-                                <option value="Statistics">Статистика</option>
-                            </optgroup>
-                            <optgroup label="Информатика и компютърни науки">
-                                <option value="Informatics">Информатика</option>
-                                <option value="Information Systems">Информационни системи</option>
-                                <option value="Computer Science">Компютърни науки</option>
-                                <option value="Software Engineering">Софтуерно инженерство</option>
-                            </optgroup>
-                            <optgroup label="Педагогика на обучението по...">
-                                <option value="Mathematics and Informatics">Математика и информатика</option>
-                            </optgroup>
-                        </select>
-                    </div>
-
-                    <div class="form-item">
-                        <input type="number" class="form-item" id="class" placeholder="Випуск" min="1888" required>
-                    </div>
-
-                    <div class="form-item">
-                        <input type="number" class="form-item" id="student-group" placeholder="Група" min="1" max="8">
-                    </div>
-
-                    <div class="form-item">
-                        <input type="number" class="form-item" id="subclass" placeholder="Поток" min="1" max="2">
-                    </div>
-
-                    <div class="file-button">
-                        <input type="file" name="image" required>
-                        <button type="submit">Качи снимка</button>
-                    </div>
-                </div>
-            </form>
-        </div>
+<div class="custom-form">
+    <div class="form-header">
+        <h1>Нова снимка</h1>
     </div>
+    <div class="form-callout form-message">
+        <p id="success"></p>
+    </div>
+    <div class="form-body">
+        <form id="upload-form" enctype="multipart/form-data">
+            <div class="form-fieldset regular-fieldset">
+                <div>
+                    <select class="form-item" id="programme" required>
+                        <option value selected disabled>Специалност</option>
+                        <optgroup label="Математика">
+                            <option value="Data Analytics">Анализ на данни</option>
+                            <option value="Mathematics">Математика</option>
+                            <option value="Applied Mathematics">Приложна математика</option>
+                            <option value="Statistics">Статистика</option>
+                        </optgroup>
+                        <optgroup label="Информатика и компютърни науки">
+                            <option value="Informatics">Информатика</option>
+                            <option value="Information Systems">Информационни системи</option>
+                            <option value="Computer Science">Компютърни науки</option>
+                            <option value="Software Engineering">Софтуерно инженерство</option>
+                        </optgroup>
+                        <optgroup label="Педагогика на обучението по...">
+                            <option value="Mathematics and Informatics">Математика и информатика</option>
+                        </optgroup>
+                    </select>
+                </div>
+
+                <div>
+                    <input type="number" class="form-item" id="class" placeholder="Випуск" min="1888" required>
+                </div>
+
+                <div>
+                    <input type="number" class="form-item" id="student-group" placeholder="Група" min="1" max="8">
+                </div>
+
+                <div>
+                    <input type="number" class="form-item" id="subclass" placeholder="Поток" min="1" max="2">
+                </div>
+
+                <div class="file-button">
+                    <input type="file" name="image" required>
+                    <button type="submit">Качи снимка</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
 </body>
 
 </html>
