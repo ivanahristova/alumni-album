@@ -51,6 +51,27 @@ function userExists(string $email): bool
     return $stmt->fetch();
 }
 
+function getClassStatistics(): array
+{
+    $database = Database::getInstance();
+    $sql = "SELECT class, COUNT(u.id) as count FROM user u JOIN student st ON st.user_id=u.id GROUP BY st.class";
+    $statement = $database->query($sql);
+
+    return $statement->fetchAll(PDO::FETCH_ASSOC);
+}
+
+function getProgrammeStatistics(): array
+{
+    $database = Database::getInstance();
+    $sql = "SELECT pr.name, COUNT(u.id) as count FROM user u "
+        . "	JOIN student st ON st.user_id=u.id "
+        . "	JOIN programme pr ON pr.id=st.programme_id "
+        . " GROUP BY pr.id";
+    $statement = $database->query($sql);
+
+    return $statement->fetchAll(PDO::FETCH_ASSOC);
+}
+
 function getRole(int $id): string|false
 {
     $database = Database::getInstance();

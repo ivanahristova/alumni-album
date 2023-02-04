@@ -2,14 +2,14 @@
 <html lang="bg">
 <head>
     <meta charset="UTF-8">
-    <title>Начало</title>
-    <link rel="stylesheet" href="../../styles/common.css">
-    <link rel="stylesheet" href="../../styles/photo.css">
+    <title>Профил | Алумни албум</title>
+    <link rel="icon" href="../../images/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="../../styles/navigation.css">
-    <link rel="stylesheet" href="../../styles/search-bar.css">
+    <link rel="stylesheet" href="../../styles/statistics.css">
+    <link rel="stylesheet" href="../../styles/common.css">
     <script src="../../scripts/basic-auth.js" defer></script>
-    <script src="../../scripts/gallery.js" defer></script>
     <script src="../../scripts/logout.js" defer></script>
+    <script src="../../scripts/statistics.js" defer></script>
 </head>
 <body>
 <header>
@@ -24,11 +24,24 @@
         <button class="nav-link logout-button" id="logout-button">Изход</button>
     </nav>
 </header>
-<section id="image-container" class="image-container">
-    <div id="no-images" class="warning">
-        <p>Галерията е празна</p>
+<main>
+    <div class="tab-bar">
+        <button type="button" class="tab" id="class">Випуск</button>
+        <button type="button" class="tab" id="programme">Специалност</button>
     </div>
-</section>
 
+    <div class="statistics" id="statistics">
+<!--        <table class="chart" id="users-stats-chart">-->
+<!--            <tbody id="users-stats-chart-body">-->
+
+<!--            </tbody>-->
+<!--        </table>-->
+    </div>
+
+    <section class="warning" id="no-data" >
+        <p>Няма достатъчно данни за изготвяне на статистика</p>
+    </section>
+
+</main>
 </body>
 </html>

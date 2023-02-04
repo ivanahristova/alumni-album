@@ -1,0 +1,44 @@
+.tab-bar {
+    display: flex;
+}
+
+.tab-bar button {
+    border: none;
+    padding: 5px 12px;
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 20px;
+    appearance: none;
+    transition: 0.3s;
+    background-color: var(--su-purple);
+    color: white;
+    flex: auto;
+    width: 100%;
+}
+
+.tab-bar button:hover, button.active {
+    background-color: var(--su-dark-purple);
+}
+
+.statistics {
+    margin-top: 2rem;
+    display: none;
+}
+
+.table-caption {
+    margin-bottom: 1rem;
+}
+
+.chart {
+    border: 3px solid var(--su-dark-purple);
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.category-style {
+    width: max-content;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    padding-bottom: 1rem;
+}
