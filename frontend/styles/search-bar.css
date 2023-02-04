@@ -1,3 +1,4 @@
+@import "form.css";
 .search-form-options {
     display: flex;
     width: 100%;
@@ -41,17 +42,6 @@
 
 .search-button:hover {
     background-color: #5A0046;
-}
-
-.form-callout {
-    border: solid 1px black;
-    border-radius: 6px;
-    padding: 1rem;
-    text-align: center;
-}
-
-.form-message {
-    display: none;
 }
 
 @media (max-width: 850px) {

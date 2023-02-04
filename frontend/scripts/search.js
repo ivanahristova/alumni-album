@@ -20,9 +20,12 @@ search_form.addEventListener("submit", async function (event) {
 
     const data = {};
     const fields = search_form.querySelectorAll('input, select');
+    var description = "";
+
 
     fields.forEach(field => {
         data[field.name] = field.value;
+        description = description + " "+ field.value;
     });
 
     await fetch('../../../backend/controllers/search-photo.php', {
@@ -38,7 +41,7 @@ search_form.addEventListener("submit", async function (event) {
             let messageElement = document.getElementById("success");
             document.getElementById("success").innerHTML = data.message;
             if (data.status === "success") {
-                messageElement.innerHTML = "Успешна заявка";
+                messageElement.innerHTML = description;
                 messageElement.parentElement.classList.add('form-success');
                 messageElement.parentElement.classList.remove('form-error');
             } else {
@@ -55,9 +58,13 @@ search_form.addEventListener("submit", async function (event) {
                 element.style.display = 'block';
             } else {
                 for (let i = 0; i < photos.length; i++) {
-                    container.appendChild(createImgForm(photos[i].src, photos[i].alt));
+                    container.appendChild(createImgForm(photos[i].path, photos[i].description));
                 }
             }
 
         });
+
+    for (var i = 0; i < search_form.elements.length; i++) {
+        search_form.elements[i].value = "";
+    }
 })

@@ -30,15 +30,13 @@ if (isset($_FILES["image"])) {//TODO choose happy path
     if ($message == "") {
 
         $new_file_name = uniqid() . "database" . $file_ext;
-        $path = "../../../backend/images/uploads/" . $new_file_name . "." . $file_ext;
-        $file_destination = "../images/uploads/" . $new_file_name . "." . $file_ext;
+        $path = "..\..\..\backend\images\uploads\\" . $new_file_name . "." . $file_ext;
+        $file_destination = "..\images\uploads\\" . $new_file_name . "." . $file_ext;
         move_uploaded_file($file_tmp, $file_destination);
         try {
             $db = Database::getInstance();
             $connection = $db->getConnection();
 
-            //$target_dir = "images/uploads/";
-            //$target_file = $target_dir . $new_file_name."";
             $image_path = $_FILES['image']['name'];
 
             $sqlInsert = "INSERT INTO photo(path, class,subclass,programme_id,student_group) VALUES (?,?,?,?,?)";
@@ -48,7 +46,7 @@ if (isset($_FILES["image"])) {//TODO choose happy path
             echo json_encode(array("status" => "success", "message" => $message), JSON_UNESCAPED_UNICODE);
 
         } catch (PDOException $ex) {
-
+            echo $ex->getMessage();
         }
     } else {
         echo json_encode(array("status" => "failure", "message" => "Неуспешно качване. " . $message), JSON_UNESCAPED_UNICODE);
