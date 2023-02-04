@@ -21,3 +21,19 @@
     border: 1px solid black;
     padding: 0.5rem;
 }
+
+@media (max-width: 800px) {
+    .image-container {
+        margin-top: 3rem;
+        margin-bottom: 2rem;
+        column-count: 2;
+    }
+}
+
+@media (max-width: 600px) {
+    .image-container {
+        margin-top: 3rem;
+        margin-bottom: 2rem;
+        column-count: 1;
+    }
+}
