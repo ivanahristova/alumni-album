@@ -6,10 +6,12 @@
     <link rel="icon" href="../../images/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="../../styles/navigation.css">
     <link rel="stylesheet" href="../../styles/search-bar.css">
+    <link rel="stylesheet" href="../../styles/profile.css">
     <link rel="stylesheet" href="../../styles/form.css">
     <script src="../../scripts/basic-auth.js" defer></script>
     <script src="../../scripts/logout.js" defer></script>
-    <script src="../../scripts/profile.js" defer></script>
+    <script src="../../scripts/load-profile.js" defer></script>
+    <script src="../../scripts/update-profile.js" defer></script>
 </head>
 <body>
 <header>
@@ -25,62 +27,35 @@
 </header>
 <main>
     <div class="custom-form">
-        <div class="form-header">
-            <h1>Профил</h1>
-        </div>
         <div class="form-callout form-message">
             <p id="success"></p>
         </div>
+        
+        <div class="form-header">
+            <h1>Редактиране на профила</h1>
+        </div>
         <div class="form-body">
-            <form id="update-form" enctype="multipart/form-data">
-                <div class="form-fieldset regular-fieldset">
-
-                    <div>
-                        <input type="text" class="form-item" name="firstName" id="first-name" placeholder="Име" required
-                               maxlength="255">
-                        <div class="error">
-                            <p id="first-name-error"></p>
-                        </div>
+            <form class="form-fieldset regular-fieldset" id="update-form">
+                <div>
+                    <input type="email" class="form-item" name="email" id="email" placeholder="Имейл">
+                    <div class="error">
+                        <p id="email-error"></p>
                     </div>
-                    <div>
-                        <input type="text" class="form-item" name="lastName" id="last-name" placeholder="Фамилия"
-                               required
-                               maxlength="255">
-                        <div class="error">
-                            <p id="last-name-error"></p>
-                        </div>
+                </div>
+                <div>
+                    <input type="password" class="form-item" name="password" id="new-password" placeholder="Нова парола"
+                           minlength="8" maxlength="64">
+                    <div class="error">
+                        <p id="new-password-error"></p>
                     </div>
-                    <div>
-                        <select class="form-item" id="programme" required>
-                            <option value selected disabled>Специалност</option>
-                            <optgroup label="Математика">
-                                <option value="Data Analytics">Анализ на данни</option>
-                                <option value="Mathematics">Математика</option>
-                                <option value="Applied Mathematics">Приложна математика</option>
-                                <option value="Statistics">Статистика</option>
-                            </optgroup>
-                            <optgroup label="Информатика и компютърни науки">
-                                <option value="Informatics">Информатика</option>
-                                <option value="Information Systems">Информационни системи</option>
-                                <option value="Computer Science">Компютърни науки</option>
-                                <option value="Software Engineering">Софтуерно инженерство</option>
-                            </optgroup>
-                            <optgroup label="Педагогика на обучението по...">
-                                <option value="Mathematics and Informatics">Математика и информатика</option>
-                            </optgroup>
-                        </select>
+                </div>
+                <div>
+                    <input type="password" class="form-item" name="password" id="old-password"
+                           placeholder="Стара парола"
+                           required minlength="8" maxlength="64">
+                    <div class="error">
+                        <p id="old-password-error"></p>
                     </div>
-                    <div>
-                        <input type="number" class="form-item" id="class" placeholder="Випуск" min="1888" required>
-                    </div>
-                    <div>
-                        <input type="number" class="form-item" id="student-group" placeholder="Група" min="1" max="8">
-                    </div>
-                    <div>
-                        <input type="number" class="form-item" id="subclass" placeholder="Поток" min="1" max="2">
-                    </div>
-
-
                 </div>
                 <div>
                     <button class="update-button" type="submit">Запази</button>
