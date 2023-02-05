@@ -1,8 +1,11 @@
 <?php
+
 require_once '../services/database/database.php';
 
 $message = "";
-if (isset($_FILES["image"])) {//TODO choose happy path
+if (!isset($_FILES["image"])) {
+    echo json_encode(array("status" => "failure", "data" => "Неуспешно качване на снимка."), JSON_UNESCAPED_UNICODE);
+} else {
     $file = $_FILES["image"];
     $file_name = $file["name"];
     $file_tmp = $file["tmp_name"];
@@ -18,14 +21,13 @@ if (isset($_FILES["image"])) {//TODO choose happy path
     $file_ext = strtolower(end($extension));
     $extensions = array("jpeg", "jpg", "png");
 
-
     if (in_array($file_ext, $extensions) === false) {
         $message = $message . "Разширението не е позволено, моля използвайте JPEG или PNG файл.";
     }
 
-//      if($file_size > 2097152){
-//          $message = $message . 'Файлът трябва да е по-малък от 2 MB. ';
-//      }
+    if ($file_size > 2097152) {
+        $message = $message . 'Файлът трябва да е по-малък от 2 MB. ';
+    }
 
     if ($message == "") {
 
@@ -46,7 +48,8 @@ if (isset($_FILES["image"])) {//TODO choose happy path
             echo json_encode(array("status" => "success", "data" => $message), JSON_UNESCAPED_UNICODE);
 
         } catch (PDOException $ex) {
-            echo $ex->getMessage();
+            http_response_code(500);
+            exit (json_encode(["status" => "failure", "data" => "Неуспешна заявка"], JSON_UNESCAPED_UNICODE));
         }
     } else {
         echo json_encode(array("status" => "failure", "data" => "Неуспешно качване. " . $message), JSON_UNESCAPED_UNICODE);

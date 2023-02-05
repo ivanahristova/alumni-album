@@ -30,7 +30,7 @@
     display: block;
 }
 
-.search-button {
+.search-button, .clear-button {
     background-color: #79005E;
     color: white;
     border-color: white;
@@ -41,7 +41,7 @@
     border-radius: 5px;
 }
 
-.search-button:hover {
+.search-button:hover, .clear-button:hover {
     background-color: #5A0046;
 }
 

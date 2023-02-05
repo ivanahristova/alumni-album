@@ -55,6 +55,13 @@ $input = new TeacherFormInput(
     $user_data["title"]
 );
 
+$regexForNames = "/^[А-Яа-я]+$/u";
+
+if (!preg_match($regexForNames, $input->first_name) || !preg_match($regexForNames, $input->last_name)) {
+    http_response_code(400);
+    exit(json_encode(["status" => "failure", "data" => "Име и фамилия трябва да са на кирилица"], JSON_UNESCAPED_UNICODE));
+}
+
 if (!filter_var($input->email, FILTER_VALIDATE_EMAIL)) {
     http_response_code(400);
     exit(json_encode(["status" => "failure", "data" => "Невалидни данни"], JSON_UNESCAPED_UNICODE));
@@ -77,7 +84,7 @@ if (mb_strlen($input->last_name) < 1 || mb_strlen($input->last_name) > 255) {
 
 if (userExists($input->email)) {
     http_response_code(400);
-    exit(json_encode(["status" => "failure", "data" => "Имейлът е използван"], JSON_UNESCAPED_UNICODE));
+    exit(json_encode(["status" => "failure", "data" => "Съществува потребител с въведените данни"], JSON_UNESCAPED_UNICODE));
 }
 
 try {
