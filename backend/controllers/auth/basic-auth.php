@@ -3,7 +3,9 @@
 session_start();
 
 if (!isset($_SESSION['user_id'])) {
-    echo json_encode(array("status" => "failure", "data" => "unauthorized"));
+    http_response_code(401);
+    echo json_encode(["status" => "failure", "data" => "unauthorized"]);
 } else {
-    echo json_encode(array("status" => "failure", "data" => "authorized"));
+    http_response_code(200);
+    echo json_encode(["status" => "success", "data" => "authorized"]);
 }
