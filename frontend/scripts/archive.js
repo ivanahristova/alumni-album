@@ -85,10 +85,4 @@ function loadPage(json) {
 
         event.preventDefault();
     });
-
-    document.getElementById("clear-button").addEventListener("click", function() {
-        for (let i = 0; i < searchForm.elements.length; i++) {
-            searchForm.elements[i].value = "";
-        }
-    });
 })();
