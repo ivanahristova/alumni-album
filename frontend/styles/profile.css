@@ -2,6 +2,21 @@
 @import "form.css";
 @import "navigation.css";
 
-.info-fields {
-    display: none;
+.info-fields-form {
+    width: 100%;
+    background-color: var(--su-purple);
+    color: white;
+}
+
+.info-fields-header {
+    background-color: var(--su-dark-purple);
+}
+
+.data-field * {
+    display: inline-block;
+    padding-right: 0.5rem;
+}
+
+.field-title {
+    font-weight: 100;
 }
