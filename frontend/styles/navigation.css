@@ -1,7 +1,7 @@
 @import "common.css";
 
 .menu {
-    padding: 1rem;
+    padding: 1rem 2rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -9,7 +9,7 @@
     font-size: 1rem;
 }
 
-.menu .logo {
+.menu img {
     width: 150px;
 }
 
@@ -17,12 +17,20 @@
     border: none;
     border-radius: 50px;
     padding: .5rem 1.5rem;
+    font-weight: inherit;
+    font-size: inherit;
     color: white;
     background-color: var(--su-purple);
     cursor: pointer;
     transition: all 0.3s ease 0s;
-    font-weight: inherit;
-    font-size: inherit;
+}
+
+.menu button:hover {
+    background-color: var(--su-dark-purple);
+}
+
+.menu button:active {
+    background-color: var(--su-purple);
 }
 
 .navigation ul {

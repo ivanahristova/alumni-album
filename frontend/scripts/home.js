@@ -1,39 +1,36 @@
-let currentIndex = 0;
-const imagesPerPage = 6;
+function createPhoto(src) {
+    let div = document.createElement("div");
+    div.classList.add('photo');
 
-let lastIndex = 0;
+    let img = document.createElement("img");
+    img.src = src;
 
-const imageContainer = document.getElementById("image-container");
-const loadMoreButton = document.getElementById("load-more-button");
+    div.append(img);
 
-function loadMore() {
-    const endIndex = currentIndex + imagesPerPage;
-    const temp = currentIndex;
-
-    fetch(`../../../backend/controllers/get-photos.php?start=${currentIndex}&end=${endIndex}`)
-        .then(response => response.json())
-        .then(images => {
-            images.data.forEach(image => {
-                const div = document.createElement("div");
-                div.classList.add('my-container-item');
-
-                const img = document.createElement("img");
-                img.src = image.path;
-
-                div.appendChild(img);
-                imageContainer.appendChild(div);
-                currentIndex++;
-            });
-
-            lastIndex = currentIndex;
-
-            if (currentIndex === temp) {
-                loadMoreButton.setAttribute("hidden", "");
-            }
-        });
+    return div;
 }
 
-loadMoreButton.addEventListener("click", loadMore);
+(() => {
+    let loadMoreButton = document.getElementById("load-more-button");
+    let photos = document.getElementById("photos");
+    let imagesPerPage = 6;
+    let currentIndex = 0;
 
-// Show the first set of images
-loadMore();
+    loadMoreButton.addEventListener("click", () => {
+        fetch(`../../../backend/controllers/get-photos.php?offset=${currentIndex}&length=${imagesPerPage}`)
+            .then(response => response.json())
+            .then(images => {
+                images.data.forEach(image => {
+                    photos.append(createPhoto(image.path));
+                });
+
+                if (images.data.length < imagesPerPage) {
+                    loadMoreButton.style.display = "none";
+                }
+
+                currentIndex += images.data.length;
+            });
+    });
+
+    loadMoreButton.click();
+})();
