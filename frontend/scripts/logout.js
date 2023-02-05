@@ -1,4 +1,12 @@
-document.getElementById('logout-button').addEventListener('click', async () => {
-    let json = await fetch("../../../backend/controllers/logout.php").then(response => response.json());
-    window.location.assign("../login");
-})
+(() => {
+    let logoutButton = document.getElementById('logout-button');
+
+    logoutButton.addEventListener('click', () => {
+        fetch("../../../backend/controllers/logout.php")
+            .then(response => {
+                if (response.ok) {
+                    window.location.assign("../login")
+                }
+            })
+    });
+})();

@@ -4,12 +4,15 @@ require_once '../../services/database/database.php';
 
 session_start();
 
-$user_id = $_SESSION['user_id'];
-$role_id = $_SESSION['role_id'];
-$role = getRoleCodeByRoleId($role_id);
+if (!isset($_SESSION['user_id'], $_SESSION['role_id'])) {
+    http_response_code(401);
+    exit(json_encode(["status" => "failure", "data" => "unauthorized"]));
+}
 
-if (!isset($user_id) || !isset($role_id) || $role != "student") {
-    echo json_encode(array("status" => "failure", "data" => "unauthorized"));
+if (getRoleCodeByRoleId($_SESSION['role_id']) != "student") {
+    http_response_code(401);
+    echo json_encode(["status" => "failure", "data" => "unauthorized"]);
 } else {
-    echo json_encode(array("status" => "success", "data" => $user_id));
+    http_response_code(200);
+    echo json_encode(["status" => "success", "data" => $_SESSION['user_id']]);
 }
