@@ -1,5 +1,7 @@
 <?php
 
+require_once '../../services/database/database.php';
+
 session_start();
 
 $user_id = $_SESSION['user_id'];
