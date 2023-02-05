@@ -69,6 +69,13 @@ $input = new StudentFormInput(
     intval($user_data["studentGroup"])
 );
 
+$bulgarianAlphabet = '/^[А-Яа-я]+$/u';
+
+if (!preg_match($bulgarianAlphabet, $input->first_name) || !preg_match($bulgarianAlphabet, $input->last_name)) {
+    http_response_code(400);
+    exit(json_encode(["status" => "failure", "data" => "Име и фамилия трябва да са на кирилица"], JSON_UNESCAPED_UNICODE));
+}
+
 if (!filter_var($input->email, FILTER_VALIDATE_EMAIL)) {
     http_response_code(400);
     exit(json_encode(["status" => "failure", "data" => "Невалидни данни"], JSON_UNESCAPED_UNICODE));
@@ -116,7 +123,12 @@ if ($input->student_group < 1 || $input->student_group > 8) {
 
 if (userExists($input->email)) {
     http_response_code(400);
-    exit(json_encode(["status" => "failure", "data" => "Имейлът е използван"], JSON_UNESCAPED_UNICODE));
+    exit(json_encode(["status" => "failure", "data" => "Съществува потребител с въведените данни"], JSON_UNESCAPED_UNICODE));
+}
+
+if (facultyNumberExists($input->faculty_number)) {
+    http_response_code(400);
+    exit(json_encode(["status" => "failure", "data" => "Съществува потребител с въведените данни"], JSON_UNESCAPED_UNICODE));
 }
 
 try {

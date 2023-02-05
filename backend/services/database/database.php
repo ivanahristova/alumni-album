@@ -47,8 +47,19 @@ function userExists(string $email): bool
     $database = Database::getInstance();
     $sql = "SELECT * FROM user WHERE email = ?";
     $stmt = $database->query($sql, $email);
+    $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-    return $stmt->fetch();
+    return $stmt->rowCount() != 0;
+}
+
+function facultyNumberExists(string $faculty_number): bool
+{
+    $database = Database::getInstance();
+    $sql = "SELECT * FROM student WHERE faculty_number = ?";
+    $stmt = $database->query($sql, $faculty_number);
+    $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    return $stmt->rowCount() != 0;
 }
 
 function getStudentByUserId($user_id): array

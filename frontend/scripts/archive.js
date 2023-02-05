@@ -29,7 +29,7 @@ async function prepareZip(photos) {
     let zip = new JSZip().folder("images");
 
     for (let photo of photos) {
-        let filename = photo.path.substring(photo.path.lastIndexOf('/') + 1);
+        let filename = photo.path.substring(photo.path.lastIndexOf('\\') + 1);
         let blob = await fetch(photo.path).then(res => res.blob());
         zip.file(filename, blob);
     }
@@ -84,5 +84,11 @@ function loadPage(json) {
             .then(loadPage);
 
         event.preventDefault();
+    });
+
+    document.getElementById("clear-button").addEventListener("click", function() {
+        for (let i = 0; i < searchForm.elements.length; i++) {
+            searchForm.elements[i].value = "";
+        }
     });
 })();
