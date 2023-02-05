@@ -5,6 +5,10 @@ main {
     padding: 2rem;
 }
 
+main > * + * {
+    margin-top: 2rem;
+}
+
 .photos-container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
@@ -35,5 +39,26 @@ main {
 }
 
 .load-more-button:active {
+    background-color: var(--su-purple);
+}
+
+.download-button {
+    padding: 9px 15px;
+    border-radius: 10px;
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    z-index: 99;
+    font-size: 1rem;
+    color: white;
+    background-color: var(--su-purple);
+    text-decoration: none;
+}
+
+.download-button:hover {
+    background-color: var(--su-dark-purple);
+}
+
+.download-button:active {
     background-color: var(--su-purple);
 }

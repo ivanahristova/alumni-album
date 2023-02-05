@@ -1,31 +1,79 @@
-let container = document.getElementById("photos");
-
-const search_form = document.getElementById('search-form');
+export * from '../lib/jszip/dist/jszip.min.js';
 
 function createPhoto(src, alt) {
     let div = document.createElement('div');
     div.classList.add('photo');
 
+    let a = document.createElement('a');
+    a.setAttribute('download', 'photo');
+    a.href = src;
+
     let img = document.createElement('img');
     img.src = src;
     img.alt = alt;
 
-    div.append(img);
+    a.append(img);
+    div.append(a);
 
     return div;
 }
 
-search_form.addEventListener("submit", async function (event) {
-    event.preventDefault();
+function loadButton(base64) {
+    let a = document.getElementById('download-button');
+    a.href = "data:application/zip;base64," + base64;
+    a.innerHTML = "Изтегли всичко";
+    a.removeAttribute('hidden');
+}
 
-    const fields = search_form.querySelectorAll('input, select');
-    let data = {};
-    let description = "";
-    let programmeName = "";
+async function prepareZip(photos) {
+    let zip = new JSZip().folder("images");
 
-    if (data["programme_code"] != null) {
-        data["programme_code"] = document.getElementById("programme").value;
-        await fetch('../../../backend/controllers/get-programme-name.php', {
+    for (let photo of photos) {
+        let filename = photo.path.substring(photo.path.lastIndexOf('/') + 1);
+        let blob = await fetch(photo.path).then(res => res.blob());
+        zip.file(filename, blob);
+    }
+
+    zip.generateAsync({type: "base64"}).then(loadButton);
+}
+
+function loadPhotos(photos, container) {
+    photos.forEach(photo => {
+        container.append(createPhoto(photo.path, photo.description));
+    });
+}
+
+function loadPage(json) {
+    let container = document.getElementById('photos');
+    let downloadButton = document.getElementById('download-button');
+    let message = document.getElementById('no-images');
+    let photos = json.data;
+
+    container.innerHTML = '';
+
+    if (photos.length === 0) {
+        message.removeAttribute('hidden');
+        downloadButton.setAttribute('hidden', '');
+    } else {
+        prepareZip(photos);
+        loadPhotos(photos, container);
+        message.setAttribute('hidden', '');
+        downloadButton.removeAttribute('hidden');
+    }
+}
+
+(() => {
+    let searchForm = document.getElementById('search-form');
+
+    searchForm.addEventListener('submit', event => {
+        let fields = searchForm.querySelectorAll('input, select');
+        let data = {};
+
+        fields.forEach(field => {
+            data[field.name] = field.value;
+        });
+
+        fetch('../../../backend/controllers/search-photos.php', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -33,62 +81,8 @@ search_form.addEventListener("submit", async function (event) {
             body: JSON.stringify(data)
         })
             .then(response => response.json())
-            .then(json => {
-                programmeName = json.data;
-            });
-    }
+            .then(loadPage);
 
-    data = {};
-    fields.forEach(field => {
-        if (field.name === "programme") {
-            data[field.name] = field.value;
-            description = description + " " + programmeName;
-        } else {
-            data[field.name] = field.value;
-            description = description + " " + field.value;
-        }
+        event.preventDefault();
     });
-
-    await fetch('../../../backend/controllers/search-photos.php', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-    })
-        .then(response => response.json())
-        .then(data => {
-
-            let messageElement = document.getElementById("success");
-            document.getElementById("success").innerHTML = data.message;
-            if (data.status === "success") {
-                messageElement.innerHTML = "Резултати от " + description;
-                messageElement.parentElement.classList.add('form-success');
-                messageElement.parentElement.classList.remove('form-error');
-            } else {
-                messageElement.innerHTML = "Неуспешна заявка";
-                messageElement.parentElement.classList.add('form-error');
-                messageElement.parentElement.classList.remove('form-success');
-                return;
-            }
-
-            let element = document.getElementById("no-images");
-            let photos = data.data;
-
-            container.innerHTML = "";
-
-            if (photos.length === 0) {
-                element.removeAttribute("hidden");
-            } else {
-                element.setAttribute("hidden", "");
-
-                for (let i = 0; i < photos.length; i++) {
-                    container.append(createPhoto(photos[i].path, photos[i].description));
-                }
-            }
-        });
-
-    for (let i = 0; i < search_form.elements.length; i++) {
-        search_form.elements[i].value = "";
-    }
-})
+})();

@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="../../styles/photo.css">
     <link rel="stylesheet" href="../../styles/form.css">
     <script src="../../scripts/basic-auth.js"></script>
-    <script src="../../scripts/archive.js" defer></script>
     <script src="../../scripts/logout.js" defer></script>
+    <script type="module" src="../../scripts/archive.js" defer></script>
 </head>
 <body>
 <header class="menu">
@@ -68,15 +68,15 @@
                 </div>
             </div>
         </form>
-        <div class="form-callout form-message">
-            <p id="success"></p>
-        </div>
     </div>
     <article class="photos-container" id="photos">
 
     </article>
     <div class="no-results" id="no-images" hidden>
         <p>Няма намерени резултати.</p>
+    </div>
+    <div>
+        <a class="download-button" id="download-button" download="photos" hidden></a>
     </div>
 </main>
 </body>
