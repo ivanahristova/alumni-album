@@ -1,33 +1,36 @@
-let container = document.getElementById("image-container");
-
-function createImgForm(src, alt) {
+function createPhoto(src, alt) {
     let div = document.createElement('div');
-    div.classList.add('img');
+    div.classList.add('photo');
 
     let img = document.createElement('img');
-    img.classList.add('image-view');
     img.src = src;
     img.alt = alt;
 
-    div.appendChild(img);
+    div.append(img);
+
     return div;
 }
 
-function loadTemplatePhotos() {
+function loadTemplatePhotos(photosContainer) {
     fetch('../../../backend/controllers/get-template-photos.php')
         .then(response => response.json())
-        .then(data => {
-            let photos = data.data;
+        .then(json => {
+            let element = document.getElementById("no-images");
+            let photos = json.data;
 
             if (photos.length === 0) {
-                let element = document.getElementById("no-images");
-                element.style.display = 'block';
+                element.removeAttribute("hidden");
             } else {
+                element.setAttribute("hidden", "");
+
                 for (let i = 0; i < photos.length; i++) {
-                    container.appendChild(createImgForm(photos[i].src, photos[i].alt));
+                    photosContainer.append(createPhoto(photos[i].src, photos[i].alt));
                 }
             }
         });
 }
 
-loadTemplatePhotos();
+(() => {
+    let photosContainer = document.getElementById("photos");
+    loadTemplatePhotos(photosContainer);
+})();

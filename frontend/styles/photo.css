@@ -1,42 +1,39 @@
 @import "common.css";
 @import "navigation.css";
 
-.image-container {
-    margin-top: 3rem;
-    margin-bottom: 2rem;
-    column-count: 3;
+main {
+    padding: 2rem;
 }
 
-.image-view {
-    display: inline-block;
+.photos-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    align-items: center;
+    gap: 2rem;
+}
+
+.photo img {
+    height: 100%;
     width: 100%;
-    height: auto;
-    box-shadow: 0.1rem 0.1rem 0.5rem 0.2rem rgba(0, 0, 0, 0.23);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.image-view img {
+.load-more-button {
+    margin: 3rem auto 0;
+    border: none;
+    border-radius: 50px;
+    padding: .5rem 1.5rem;
     display: block;
-    width: 100%;
+    font-size: medium;
+    color: white;
+    background-color: var(--su-purple);
+    cursor: pointer;
 }
 
-.img {
-    margin-bottom: 2rem;
-    margin-left: 1rem;
-    margin-right: 1rem;
+.load-more-button:hover {
+    background-color: var(--su-dark-purple);
 }
 
-@media (max-width: 800px) {
-    .image-container {
-        margin-top: 3rem;
-        margin-bottom: 2rem;
-        column-count: 2;
-    }
-}
-
-@media (max-width: 600px) {
-    .image-container {
-        margin-top: 3rem;
-        margin-bottom: 2rem;
-        column-count: 1;
-    }
+.load-more-button:active {
+    background-color: var(--su-purple);
 }

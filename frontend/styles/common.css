@@ -22,3 +22,7 @@ body {
     color: red;
     background-color: rgba(248, 81, 73, 0.15);
 }
+
+.no-results {
+    font-size: 1rem;
+}
