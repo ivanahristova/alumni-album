@@ -6,7 +6,6 @@
 }
 
 .tab-bar button {
-    border: none;
     padding: 5px 12px;
     cursor: pointer;
     font-size: 14px;
@@ -17,10 +16,12 @@
     color: white;
     flex: auto;
     width: 100%;
+    border: .02rem solid white;
 }
 
 .tab-bar button:hover, button.active {
     background-color: var(--su-dark-purple);
+    border: .02rem solid white;
 }
 
 .statistics {

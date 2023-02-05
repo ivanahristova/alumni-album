@@ -51,11 +51,29 @@ function userExists(string $email): bool
     return $stmt->fetch();
 }
 
+function getStudentByUserId($user_id): array
+{
+    $database = Database::getInstance();
+    $query = "SELECT * FROM student WHERE user_id=?";
+    $statement = $database->query($query, $user_id);
+
+    return $statement->fetchAll(PDO::FETCH_ASSOC);
+}
+
+function getTeacherByUserId($user_id): array
+{
+    $database = Database::getInstance();
+    $query = "SELECT * FROM teacher WHERE user_id=?";
+    $statement = $database->query($query, $user_id);
+
+    return $statement->fetchAll(PDO::FETCH_ASSOC);
+}
+
 function getClassStatistics(): array
 {
     $database = Database::getInstance();
-    $sql = "SELECT class, COUNT(u.id) as count FROM user u JOIN student st ON st.user_id=u.id GROUP BY st.class";
-    $statement = $database->query($sql);
+    $query = "SELECT class, COUNT(u.id) as count FROM user u JOIN student st ON st.user_id=u.id GROUP BY st.class";
+    $statement = $database->query($query);
 
     return $statement->fetchAll(PDO::FETCH_ASSOC);
 }
@@ -63,16 +81,25 @@ function getClassStatistics(): array
 function getProgrammeStatistics(): array
 {
     $database = Database::getInstance();
-    $sql = "SELECT pr.name, COUNT(u.id) as count FROM user u "
+    $query = "SELECT pr.name, COUNT(u.id) as count FROM user u "
         . "	JOIN student st ON st.user_id=u.id "
         . "	JOIN programme pr ON pr.id=st.programme_id "
         . " GROUP BY pr.id";
-    $statement = $database->query($sql);
+    $statement = $database->query($query);
 
     return $statement->fetchAll(PDO::FETCH_ASSOC);
 }
 
-function getRole(int $id): string|false
+function getClassPhotosStatistics(): array
+{
+    $database = Database::getInstance();
+    $query = "SELECT class, COUNT(ph.id) as count FROM photo ph GROUP BY ph.class";
+    $statement = $database->query($query);
+
+    return $statement->fetchAll(PDO::FETCH_ASSOC);
+}
+
+function getRoleCodeByRoleId(int $id): string|false
 {
     $database = Database::getInstance();
     $sql = "SELECT code FROM role WHERE id = ?";

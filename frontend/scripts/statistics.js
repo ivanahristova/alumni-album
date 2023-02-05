@@ -78,6 +78,12 @@ function setTab(tab) {
         let categories = ['Специалност', 'Потребители'];
         let elements = ["name", "count"];
         showStatistics(path, caption, categories, elements);
+    } else if (tab.id === "photos") {
+        let path = '../../../backend/controllers/statistics/get-photos-statistics.php';
+        let caption = 'Брой снимки за випуск';
+        let categories = ['Випуск', 'Снимки'];
+        let elements = ["class", "count"];
+        showStatistics(path, caption, categories, elements);
     }
 }
 
