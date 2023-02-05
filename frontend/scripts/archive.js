@@ -1,17 +1,17 @@
-let container = document.getElementById("image-container");
+let container = document.getElementById("photos");
 
 const search_form = document.getElementById('search-form');
 
-function createImgForm(src, alt) {
+function createPhoto(src, alt) {
     let div = document.createElement('div');
-    div.classList.add('img');
+    div.classList.add('photo');
 
     let img = document.createElement('img');
-    img.classList.add('image-view');
     img.src = src;
     img.alt = alt;
 
-    div.appendChild(img);
+    div.append(img);
+
     return div;
 }
 
@@ -47,7 +47,7 @@ search_form.addEventListener("submit", async function (event) {
         }
     });
 
-    await fetch('../../../backend/controllers/search-photo.php', {
+    await fetch('../../../backend/controllers/search-photos.php', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -70,24 +70,23 @@ search_form.addEventListener("submit", async function (event) {
                 return;
             }
 
+            let element = document.getElementById("no-images");
             let photos = data.data;
 
+            container.innerHTML = "";
+
             if (photos.length === 0) {
-                let element = document.getElementById("no-images");
-                element.style.display = 'block';
+                element.removeAttribute("hidden");
             } else {
-                container.innerHTML = "";
+                element.setAttribute("hidden", "");
+
                 for (let i = 0; i < photos.length; i++) {
-
-                    container.appendChild(createImgForm(photos[i].path, photos[i].description));
-
+                    container.append(createPhoto(photos[i].path, photos[i].description));
                 }
             }
-
         });
 
     for (let i = 0; i < search_form.elements.length; i++) {
         search_form.elements[i].value = "";
     }
-
 })
