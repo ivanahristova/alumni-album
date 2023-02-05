@@ -2,11 +2,11 @@
 <html lang="bg">
 <head>
     <meta charset="UTF-8">
-    <title>Начало | Алумни албум</title>
+    <title>Екип | Алумни албум</title>
     <link rel="icon" href="../../images/favicon.ico" sizes="any">
-    <link rel="stylesheet" href="../../styles/home.css">
+    <link rel="stylesheet" href="../../styles/photo.css">
     <script src="../../scripts/basic-auth.js" defer></script>
-    <script src="../../scripts/home.js" defer></script>
+    <script src="../../scripts/team.js" defer></script>
     <script src="../../scripts/logout.js" defer></script>
 </head>
 <body>
@@ -14,23 +14,20 @@
     <img src="../../images/building-su.png" alt="Лого">
     <nav class="navigation">
         <ul>
-            <li><a href="../home" class="active">Начало</a></li>
+            <li><a href="../home">Начало</a></li>
             <li><a href="../upload">Нова снимка</a></li>
             <li><a href="../search">Архив</a></li>
             <li><a href="../statistics">Статистика</a></li>
-            <li><a href="../team">Екип</a></li>
+            <li><a href="../team" class="active">Екип</a></li>
             <li><a href="../profile">Профил</a></li>
         </ul>
     </nav>
     <button id="logout-button">Изход</button>
 </header>
-<main>
-    <article class="photos-container" id="photos">
-
-    </article>
-    <div>
-        <button type="submit" class="load-more-button" id="load-more-button">Зареди още...</button>
+<section class="image-container" id="image-container">
+    <div class="warning" id="no-images">
+        <p>Галерията е празна</p>
     </div>
-</main>
+</section>
 </body>
 </html>
