@@ -8,6 +8,8 @@ function buildQuery($attributes): string
 
     if (isset($attributes["programme"])) {
         $sql .= " JOIN programme pr ON ph.programme_id = pr.id WHERE ph.class = ? AND pr.code = ?";
+    } else {
+        $sql .= " WHERE ph.class = ?";
     }
 
     if (isset($attributes["subclass"])) {

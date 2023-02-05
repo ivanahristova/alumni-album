@@ -23,18 +23,20 @@ search_form.addEventListener("submit", async function (event) {
     let description = "";
     let programmeName = "";
 
-    data["programme_code"] = document.getElementById("programme").value;
-    await fetch('../../../backend/controllers/get-programme-name.php', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-    })
-        .then(response => response.json())
-        .then(json => {
-            programmeName = json.data;
-        });
+    if (data["programme_code"] != null) {
+        data["programme_code"] = document.getElementById("programme").value;
+        await fetch('../../../backend/controllers/get-programme-name.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+            .then(response => response.json())
+            .then(json => {
+                programmeName = json.data;
+            });
+    }
 
     data = {};
     fields.forEach(field => {
